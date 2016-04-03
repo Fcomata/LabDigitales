@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 25 </arg>&apos;<arg fmt="%s" index="2">FILAMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="297" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 25 </arg>Generated begin-end blocks must be named
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 25 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2"></arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 26 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="297" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 26 </arg>Generated begin-end blocks must be named
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 40 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 48 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 58 </arg>&apos;<arg fmt="%s" index="2">FILAMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 69 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 77 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 87 </arg>&apos;<arg fmt="%s" index="2">FILAMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 98 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;IMUL.v&quot; line 107 </arg>&apos;<arg fmt="%s" index="2">COLMAX</arg>&apos; has not been declared
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="new" >&quot;<arg fmt="%s" index="1">IMUL.v</arg>&quot; line <arg fmt="%d" index="2">119</arg> <arg fmt="%s" index="3">expecting &apos;endgenerate&apos;, found &apos;end&apos;</arg>
+</msg>
+
+</messages>
+
