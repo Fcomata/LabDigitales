@@ -1,0 +1,5 @@
+set -tmpdir "/home/nano/Desktop/LabDigitales/Test/xst/projnav.tmp"
+set -xsthdpdir "/home/nano/Desktop/LabDigitales/Test/xst"
+elaborate
+-ifn .prj
+-ifmt mixed
