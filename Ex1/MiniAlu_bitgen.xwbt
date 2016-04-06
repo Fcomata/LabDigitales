@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/nano/Desktop/LabDigitales/Ex1/MiniAlu.ncd
+OUTFILE=/home/nano/Desktop/LabDigitales/Ex1/MiniAlu.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/nano/Desktop/LabDigitales/Ex1
+LICENSE=WebPack
+USER_INFO=211169189_0_0_473

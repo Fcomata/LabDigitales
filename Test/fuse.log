@@ -1,22 +1,22 @@
-Running: /home/nano/Desktop/LabDigitales/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/nano/Desktop/LabDigitales/Test/TestBench_isim_beh.exe -prj /home/nano/Desktop/LabDigitales/Test/TestBench_beh.prj work.TestBench work.glbl 
+Running: /home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/nano/Desktop/LabDigitales/Test/TestBench_isim_beh.exe -prj /home/nano/Desktop/LabDigitales/Test/TestBench_beh.prj work.TestBench work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Test/RAM.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Test/Module_ROM.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Test/Collaterals.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Test/MiniAlu.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Test/TestBench.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/Test/MiniAlu.v" Line 46: Size mismatch in connection of port <Initial>. Formal port size is 16-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/Test/MiniAlu.v" Line 57: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 4-bit.
 WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/Test/MiniAlu.v" Line 58: Size mismatch in connection of port <Q>. Formal port size is 8-bit while actual signal size is 4-bit.
 WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/Test/MiniAlu.v" Line 95: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 16-bit.
 Completed static elaboration
-Fuse Memory Usage: 95164 KB
-Fuse CPU Usage: 1850 ms
+Fuse Memory Usage: 95172 KB
+Fuse CPU Usage: 3370 ms
 Compiling module ROM
 Compiling module RAM_DUAL_READ_PORT
 Compiling module UPCOUNTER_POSEDGE
@@ -25,8 +25,9 @@ Compiling module MiniAlu
 Compiling module TestBench
 Compiling module glbl
 Time Resolution for simulation is 1ps.
+Waiting for 4 sub-compilation(s) to finish...
 Compiled 7 Verilog Units
 Built simulation executable /home/nano/Desktop/LabDigitales/Test/TestBench_isim_beh.exe
-Fuse Memory Usage: 655056 KB
-Fuse CPU Usage: 1870 ms
-GCC CPU Usage: 560 ms
+Fuse Memory Usage: 392920 KB
+Fuse CPU Usage: 3430 ms
+GCC CPU Usage: 1670 ms

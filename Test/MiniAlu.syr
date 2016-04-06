@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> 
 Reading design: MiniAlu.prj
@@ -71,7 +71,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -176,9 +176,6 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <ROM>.
     Related source file is "Module_ROM.v".
-    Found 16x28-bit ROM for signal <oInstruction$mux0000>.
-    Summary:
-	inferred   1 ROM(s).
 Unit <ROM> synthesized.
 
 
@@ -218,8 +215,8 @@ Synthesizing Unit <MiniAlu>.
 WARNING:Xst:646 - Signal <rResultTop> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 16-bit comparator lessequal for signal <rBranchTaken$cmp_le0000> created at line 156.
     Found 16-bit adder for signal <rResult$addsub0000> created at line 140.
-    Found 8-bit comparator equal for signal <wSourceDataMUX0$cmp_eq0000> created at line 113.
-    Found 8-bit comparator equal for signal <wSourceDataMUX1$cmp_eq0000> created at line 114.
+    Found 8-bit comparator equal for signal <wA$cmp_eq0000> created at line 113.
+    Found 8-bit comparator equal for signal <wB$cmp_eq0000> created at line 114.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred   1 Multiplier(s).
@@ -233,8 +230,6 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  9x16-bit dual-port RAM                                : 2
-# ROMs                                                 : 1
- 16x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
 # Adders/Subtractors                                   : 2
@@ -254,6 +249,23 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:1710 - FF/Latch <Q_7> (without init value) has a constant value of 0 in block <FF_InsAnterior>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_6> (without init value) has a constant value of 0 in block <FF_InsAnterior>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_5> (without init value) has a constant value of 0 in block <FF_InsAnterior>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_4> (without init value) has a constant value of 0 in block <FF_InsAnterior>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_3> (without init value) has a constant value of 0 in block <FF_InsAnterior>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_7> (without init value) has a constant value of 0 in block <FFD4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_6> (without init value) has a constant value of 0 in block <FFD4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_5> (without init value) has a constant value of 0 in block <FFD4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_4> (without init value) has a constant value of 0 in block <FFD4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_3> (without init value) has a constant value of 0 in block <FFD4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_7> (without init value) has a constant value of 0 in block <FFD3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_6> (without init value) has a constant value of 0 in block <FFD3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_5> (without init value) has a constant value of 0 in block <FFD3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_4> (without init value) has a constant value of 0 in block <FFD3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_6> (without init value) has a constant value of 0 in block <FFD2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_4> (without init value) has a constant value of 0 in block <FFD2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_3> (without init value) has a constant value of 0 in block <FFD1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <Q_4> of sequential type is unconnected in block <FFD1>.
 WARNING:Xst:2677 - Node <Q_5> of sequential type is unconnected in block <FFD1>.
 WARNING:Xst:2677 - Node <Q_6> of sequential type is unconnected in block <FFD1>.
@@ -300,8 +312,6 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  9x16-bit dual-port distributed RAM                    : 2
-# ROMs                                                 : 1
- 16x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
 # Adders/Subtractors                                   : 2
@@ -320,22 +330,22 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 WARNING:Xst:1989 - Unit <MiniAlu>: instances <FFD4>, <FF_InsAnterior> of unit <FFD_POSEDGE_SYNCRONOUS_RESET> are equivalent, second instance is removed
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Mcompar_rBranchTaken_cmp_le0000_cy<13>, Mcompar_rBranchTaken_cmp_le0000_cy<2>, Mcompar_rBranchTaken_cmp_le0000_cy<14>, wIP<15>, Mcompar_rBranchTaken_cmp_le0000_cy<5>, Mcompar_rBranchTaken_cmp_le0000_cy<3>, Mcompar_rBranchTaken_cmp_le0000_cy<4>, Mcompar_rBranchTaken_cmp_le0000_cy<6>, Mcompar_rBranchTaken_cmp_le0000_cy<10>, Mcompar_rBranchTaken_cmp_le0000_cy<1>, wSourceDataMUX0_cmp_eq00001, Mcompar_rBranchTaken_cmp_le0000_cy<9>, Mcompar_rBranchTaken_cmp_le0000_cy<12>, wSourceDataMUX0_cmp_eq0000, wInstruction<5>, wSourceDataMUX0<0>, InstructionRom/oInstruction_and0000, rBranchTaken_cmp_le0000, Mcompar_rBranchTaken_cmp_le0000_cy<0>, rBranchTaken, wInstruction<0>, Mcompar_rBranchTaken_cmp_le0000_cy<7>, Mcompar_rBranchTaken_cmp_le0000_cy<8>, Mcompar_rBranchTaken_cmp_le0000_cy<11>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_cy<1>, Madd_rResult_addsub0000_cy<10>, rResult_addsub0000<0>, Madd_rResult_addsub0000_cy<9>, Madd_rResult_addsub0000_cy<3>, Madd_rResult_addsub0000_cy<4>, rResult<0>, Madd_rResult_addsub0000_cy<12>, Madd_rResult_addsub0000_cy<14>, Madd_rResult_addsub0000_cy<2>, Madd_rResult_addsub0000_cy<8>, Madd_rResult_addsub0000_cy<0>, Madd_rResult_addsub0000_cy<7>, rResult<15>, Madd_rResult_addsub0000_cy<11>, Madd_rResult_addsub0000_cy<13>, Madd_rResult_addsub0000_lut<0>, wSourceDataMUX1<0>, rResult_addsub0000<15>, Madd_rResult_addsub0000_cy<5>, Madd_rResult_addsub0000_cy<6>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<14>, rResult<14>, wSourceDataMUX1<14>, Madd_rResult_addsub0000_lut<14>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<13>, wSourceDataMUX1<13>, rResult<13>, Madd_rResult_addsub0000_lut<13>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<12>, Madd_rResult_addsub0000_lut<12>, rResult_addsub0000<12>, wSourceDataMUX1<12>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<11>, Madd_rResult_addsub0000_lut<11>, rResult_addsub0000<11>, wSourceDataMUX1<11>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<10>, Madd_rResult_addsub0000_lut<10>, rResult_addsub0000<10>, wSourceDataMUX1<10>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<9>, rResult<9>, wSourceDataMUX1<9>, rResult_addsub0000<9>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wSourceDataMUX1<8>, Madd_rResult_addsub0000_lut<8>, rResult<8>, rResult_addsub0000<8>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<7>, rResult<7>, wSourceDataMUX1<7>, Madd_rResult_addsub0000_lut<7>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<6>, wSourceDataMUX1<6>, rResult<6>, Madd_rResult_addsub0000_lut<6>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<5>, rResult_addsub0000<5>, wSourceDataMUX1<5>, Madd_rResult_addsub0000_lut<5>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<4>, wSourceDataMUX1<4>, rResult_addsub0000<4>, Madd_rResult_addsub0000_lut<4>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<3>, rResult<3>, rResult_addsub0000<3>, wSourceDataMUX1<3>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<2>, wSourceDataMUX1<2>, Madd_rResult_addsub0000_lut<2>, rResult_addsub0000<2>.
-WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wSourceDataMUX1<1>, rResult_addsub0000<1>, Madd_rResult_addsub0000_lut<1>, rResult<1>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA_cmp_eq0000, rBranchTaken_cmp_le0000, Mcompar_rBranchTaken_cmp_le0000_cy<12>, Mcompar_rBranchTaken_cmp_le0000_cy<3>, rBranchTaken, Mcompar_rBranchTaken_cmp_le0000_cy<4>, Mcompar_rBranchTaken_cmp_le0000_cy<1>, Mcompar_rBranchTaken_cmp_le0000_cy<2>, Mcompar_rBranchTaken_cmp_le0000_cy<8>, wA_cmp_eq00001, Mcompar_rBranchTaken_cmp_le0000_cy<10>, Mcompar_rBranchTaken_cmp_le0000_cy<7>, wA<0>, Mcompar_rBranchTaken_cmp_le0000_cy<13>, Mcompar_rBranchTaken_cmp_le0000_cy<11>, Mcompar_rBranchTaken_cmp_le0000_cy<6>, wInstruction<0>, InstructionRom/oInstruction_and0000, Mcompar_rBranchTaken_cmp_le0000_cy<0>, Mcompar_rBranchTaken_cmp_le0000_cy<9>, Mcompar_rBranchTaken_cmp_le0000_cy<14>, wInstruction<5>, Mcompar_rBranchTaken_cmp_le0000_cy<5>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<15>, Madd_rResult_addsub0000_cy<1>, Madd_rResult_addsub0000_cy<10>, Madd_rResult_addsub0000_cy<2>, wB<0>, Madd_rResult_addsub0000_cy<9>, Madd_rResult_addsub0000_cy<4>, Madd_rResult_addsub0000_cy<5>, Madd_rResult_addsub0000_cy<11>, rResult<0>, Madd_rResult_addsub0000_cy<8>, Madd_rResult_addsub0000_cy<7>, Madd_rResult_addsub0000_cy<6>, rResult_addsub0000<0>, Madd_rResult_addsub0000_cy<12>, Madd_rResult_addsub0000_cy<13>, Madd_rResult_addsub0000_lut<0>, Madd_rResult_addsub0000_cy<0>, Madd_rResult_addsub0000_cy<3>, rResult<15>, Madd_rResult_addsub0000_cy<14>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<14>, rResult_addsub0000<14>, rResult<14>, Madd_rResult_addsub0000_lut<14>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult_addsub0000<13>, wA<13>, rResult<13>, Madd_rResult_addsub0000_lut<13>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<12>, rResult_addsub0000<12>, rResult<12>, wA<12>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<11>, Madd_rResult_addsub0000_lut<11>, rResult<11>, rResult_addsub0000<11>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<10>, wA<10>, rResult_addsub0000<10>, Madd_rResult_addsub0000_lut<10>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<9>, rResult_addsub0000<9>, rResult<9>, wA<9>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<8>, rResult_addsub0000<8>, Madd_rResult_addsub0000_lut<8>, rResult<8>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<7>, rResult<7>, rResult_addsub0000<7>, wA<7>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: rResult<6>, rResult_addsub0000<6>, Madd_rResult_addsub0000_lut<6>, wA<6>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<5>, rResult<5>, Madd_rResult_addsub0000_lut<5>, rResult_addsub0000<5>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<4>, Madd_rResult_addsub0000_lut<4>, rResult_addsub0000<4>, rResult<4>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<3>, rResult_addsub0000<3>, Madd_rResult_addsub0000_lut<3>, rResult<3>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: wA<2>, rResult_addsub0000<2>, Madd_rResult_addsub0000_lut<2>, rResult<2>.
+WARNING:Xst:2170 - Unit MiniAlu : the following signal(s) form a combinatorial loop: Madd_rResult_addsub0000_lut<1>, wA<1>, rResult<1>, rResult_addsub0000<1>.
 
 Optimizing unit <MiniAlu> ...
 
@@ -404,18 +414,19 @@ Design Statistics
 # IOs                              : 10
 
 Cell Usage :
-# BELS                             : 241
+# BELS                             : 253
 #      GND                         : 1
-#      LUT2                        : 39
-#      LUT2_L                      : 5
-#      LUT3                        : 53
-#      LUT3_D                      : 1
-#      LUT3_L                      : 2
-#      LUT4                        : 49
+#      LUT2                        : 41
+#      LUT2_D                      : 2
+#      LUT2_L                      : 3
+#      LUT3                        : 54
+#      LUT3_D                      : 3
+#      LUT3_L                      : 1
+#      LUT4                        : 63
 #      LUT4_D                      : 2
-#      LUT4_L                      : 2
+#      LUT4_L                      : 1
 #      MUXCY                       : 46
-#      MUXF5                       : 8
+#      MUXF5                       : 3
 #      VCC                         : 1
 #      XORCY                       : 32
 # FlipFlops/Latches                : 73
@@ -437,10 +448,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      127  out of   4656     2%  
+ Number of Slices:                      126  out of   4656     2%  
  Number of Slice Flip Flops:             73  out of   9312     0%  
- Number of 4 input LUTs:                217  out of   9312     2%  
-    Number used as logic:               153
+ Number of 4 input LUTs:                234  out of   9312     2%  
+    Number used as logic:               170
     Number used as RAMs:                 64
  Number of IOs:                          10
  Number of bonded IOBs:                  10  out of    232     4%  
@@ -479,8 +490,8 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 25.849ns (Maximum Frequency: 38.686MHz)
-   Minimum input arrival time before clock: 27.099ns
+   Minimum period: 97.100ns (Maximum Frequency: 10.299MHz)
+   Minimum input arrival time before clock: 98.670ns
    Maximum output required time after clock: 4.283ns
    Maximum combinational path delay: No path found
 
@@ -490,35 +501,96 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clock'
-  Clock period: 25.849ns (frequency: 38.686MHz)
-  Total number of paths / destination ports: 8147368 / 369
+  Clock period: 97.100ns (frequency: 10.299MHz)
+  Total number of paths / destination ports: 13625418683 / 369
 -------------------------------------------------------------------------
-Delay:               25.849ns (Levels of Logic = 30)
-  Source:            IP/Q_8 (FF)
+Delay:               97.100ns (Levels of Logic = 91)
+  Source:            FFD4/Q_0_1 (FF)
   Destination:       IP/Q_15 (FF)
   Source Clock:      Clock rising
   Destination Clock: Clock rising
 
-  Data Path: IP/Q_8 to IP/Q_15
+  Data Path: FFD4/Q_0_1 to IP/Q_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.591   0.622  IP/Q_8 (IP/Q_8)
-     LUT4:I0->O            1   0.704   0.000  InstructionRom/oInstruction_and0000551 (InstructionRom/oInstruction_and0000551)
-     MUXF5:I0->O           1   0.321   0.455  InstructionRom/oInstruction_and000055_f5 (InstructionRom/oInstruction_and000055)
-     LUT4:I2->O           15   0.704   1.017  InstructionRom/oInstruction_and0000116 (InstructionRom/oInstruction_and0000)
-     MUXF5:S->O           18   0.739   1.072  InstructionRom/oInstruction<8>1 (wInstruction<8>)
-     LUT4:I3->O            1   0.704   0.424  wSourceDataMUX1_cmp_eq00008_SW0 (N77)
-     LUT4_D:I3->O         15   0.704   1.192  wSourceDataMUX1_cmp_eq00008 (wSourceDataMUX1_cmp_eq0000)
-     LUT3:I0->O            3   0.704   0.531  wSourceDataMUX1<14>1 (wSourceDataMUX1<14>)
-     MULT18X18SIO:A14->P15    1   4.834   0.595  Mmult__AUX_1 (_AUX_1<15>)
-     LUT4:I0->O            4   0.704   0.666  rResult<15> (rResult<15>)
-     LUT3:I1->O            3   0.704   0.706  wSourceDataMUX0<15>1 (wSourceDataMUX0<15>)
+     FDRE:C->Q             1   0.591   0.499  FFD4/Q_0_1 (FFD4/Q_0_1)
+     LUT2_L:I1->LO         1   0.704   0.135  wIPInitialValue<0>1 (Madd__AUX_Initial_2_cy<0>)
+     LUT3:I2->O           18   0.704   1.147  wIP<0>1 (wIP<0>)
+     LUT4:I1->O            1   0.704   0.000  InstructionRom/oInstruction_or0000_F (N93)
+     MUXF5:I0->O           5   0.321   0.712  InstructionRom/oInstruction_or0000 (InstructionRom/oInstruction_or0000)
+     LUT3:I1->O           18   0.704   1.072  InstructionRom/oInstruction<10>1 (wInstruction<10>)
+     LUT4:I3->O            1   0.704   0.424  wB_cmp_eq00008_SW0 (N85)
+     LUT4_D:I3->LO         1   0.704   0.275  wB_cmp_eq00008 (N101)
+     LUT3:I0->O            4   0.704   0.587  wB<0>1 (wB<0>)
+     MULT18X18SIO:B0->P0    1   3.657   0.424  Mmult__AUX_1 (_AUX_1<0>)
+     LUT4:I3->O            4   0.704   0.666  rResult<0> (rResult<0>)
+     LUT3:I1->O            3   0.704   0.531  wA<0>1 (wA<0>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<0> (Madd_rResult_addsub0000_cy<0>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<1> (rResult_addsub0000<1>)
+     LUT4:I0->O            4   0.704   0.666  rResult<1> (rResult<1>)
+     LUT3:I1->O            3   0.704   0.531  wA<1>1 (wA<1>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<1> (Madd_rResult_addsub0000_cy<1>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<2> (rResult_addsub0000<2>)
+     LUT4:I0->O            4   0.704   0.666  rResult<2> (rResult<2>)
+     LUT3:I1->O            3   0.704   0.531  wA<2>1 (wA<2>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<2> (Madd_rResult_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<3> (rResult_addsub0000<3>)
+     LUT4:I0->O            4   0.704   0.666  rResult<3> (rResult<3>)
+     LUT3:I1->O            3   0.704   0.531  wA<3>1 (wA<3>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<3> (Madd_rResult_addsub0000_cy<3>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<4> (rResult_addsub0000<4>)
+     LUT4:I2->O            4   0.704   0.666  rResult<4> (rResult<4>)
+     LUT3:I1->O            3   0.704   0.531  wA<4>1 (wA<4>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<4> (Madd_rResult_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<5> (rResult_addsub0000<5>)
+     LUT4:I0->O            4   0.704   0.666  rResult<5> (rResult<5>)
+     LUT3:I1->O            3   0.704   0.531  wA<5>1 (wA<5>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<5> (Madd_rResult_addsub0000_cy<5>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<6> (rResult_addsub0000<6>)
+     LUT4:I2->O            4   0.704   0.666  rResult<6> (rResult<6>)
+     LUT3:I1->O            3   0.704   0.531  wA<6>1 (wA<6>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<6> (Madd_rResult_addsub0000_cy<6>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<7> (rResult_addsub0000<7>)
+     LUT4:I0->O            4   0.704   0.666  rResult<7> (rResult<7>)
+     LUT3:I1->O            3   0.704   0.531  wA<7>1 (wA<7>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<7> (Madd_rResult_addsub0000_cy<7>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<8> (rResult_addsub0000<8>)
+     LUT4:I0->O            4   0.704   0.666  rResult<8> (rResult<8>)
+     LUT3:I1->O            3   0.704   0.531  wA<8>1 (wA<8>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<8> (Madd_rResult_addsub0000_cy<8>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<9> (rResult_addsub0000<9>)
+     LUT4:I0->O            4   0.704   0.666  rResult<9> (rResult<9>)
+     LUT3:I1->O            3   0.704   0.531  wA<9>1 (wA<9>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<9> (Madd_rResult_addsub0000_cy<9>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<10> (rResult_addsub0000<10>)
+     LUT4:I0->O            4   0.704   0.666  rResult<10> (rResult<10>)
+     LUT3:I1->O            3   0.704   0.531  wA<10>1 (wA<10>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<10> (Madd_rResult_addsub0000_cy<10>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<11> (rResult_addsub0000<11>)
+     LUT4:I0->O            4   0.704   0.666  rResult<11> (rResult<11>)
+     LUT3:I1->O            3   0.704   0.531  wA<11>1 (wA<11>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<11> (Madd_rResult_addsub0000_cy<11>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<12> (rResult_addsub0000<12>)
+     LUT4:I2->O            4   0.704   0.666  rResult<12> (rResult<12>)
+     LUT3:I1->O            3   0.704   0.531  wA<12>1 (wA<12>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<12> (Madd_rResult_addsub0000_cy<12>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<13> (rResult_addsub0000<13>)
+     LUT4:I2->O            4   0.704   0.666  rResult<13> (rResult<13>)
+     LUT3:I1->O            3   0.704   0.531  wA<13>1 (wA<13>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<13> (Madd_rResult_addsub0000_cy<13>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<14> (rResult_addsub0000<14>)
+     LUT4:I2->O            4   0.704   0.666  rResult<14> (rResult<14>)
+     LUT3:I1->O            3   0.704   0.531  wA<14>1 (wA<14>)
+     MUXCY:DI->O           0   0.888   0.000  Madd_rResult_addsub0000_cy<14> (Madd_rResult_addsub0000_cy<14>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<15> (rResult_addsub0000<15>)
+     LUT4:I2->O            4   0.704   0.666  rResult<15> (rResult<15>)
+     LUT3:I1->O            3   0.704   0.706  wA<15>1 (wA<15>)
      LUT2:I0->O            1   0.704   0.000  Mcompar_rBranchTaken_cmp_le0000_lut<15> (Mcompar_rBranchTaken_cmp_le0000_lut<15>)
      MUXCY:S->O            1   0.864   0.424  Mcompar_rBranchTaken_cmp_le0000_cy<15> (rBranchTaken_cmp_le0000)
-     LUT4:I3->O           25   0.704   1.339  rBranchTaken1 (rBranchTaken)
-     LUT2:I1->O            1   0.704   0.420  _or0000_inv1 (_or0000_inv)
-     MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<0> (IP/Mcount_Q_cy<0>)
+     LUT4_D:I3->O         23   0.704   1.206  rBranchTaken1 (rBranchTaken)
+     LUT4:I3->O            1   0.704   0.000  IP/Mcount_Q_lut<0> (IP/Mcount_Q_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  IP/Mcount_Q_cy<0> (IP/Mcount_Q_cy<0>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<1> (IP/Mcount_Q_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<2> (IP/Mcount_Q_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<3> (IP/Mcount_Q_cy<3>)
@@ -536,14 +608,14 @@ Delay:               25.849ns (Levels of Logic = 30)
      XORCY:CI->O           1   0.804   0.000  IP/Mcount_Q_xor<15> (IP/Mcount_Q15)
      FD:D                      0.308          IP/Q_15
     ----------------------------------------
-    Total                     25.849ns (16.386ns logic, 9.463ns route)
-                                       (63.4% logic, 36.6% route)
+    Total                     97.100ns (62.783ns logic, 34.317ns route)
+                                       (64.7% logic, 35.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clock'
-  Total number of paths / destination ports: 1229012 / 250
+  Total number of paths / destination ports: 3047989239 / 258
 -------------------------------------------------------------------------
-Offset:              27.099ns (Levels of Logic = 31)
+Offset:              98.670ns (Levels of Logic = 92)
   Source:            Reset (PAD)
   Destination:       IP/Q_15 (FF)
   Destination Clock: Clock rising
@@ -554,20 +626,81 @@ Offset:              27.099ns (Levels of Logic = 31)
     ----------------------------------------  ------------
      IBUF:I->O            47   1.218   1.442  Reset_IBUF (Reset_IBUF)
      LUT2_L:I0->LO         1   0.704   0.135  wIPInitialValue<0>1 (Madd__AUX_Initial_2_cy<0>)
-     LUT3:I2->O           14   0.704   1.175  wIP<0>1 (wIP<0>)
-     LUT4:I0->O            1   0.704   0.000  InstructionRom/oInstruction<8>1_G (N86)
-     MUXF5:I1->O          18   0.321   1.072  InstructionRom/oInstruction<8>1 (wInstruction<8>)
-     LUT4:I3->O            1   0.704   0.424  wSourceDataMUX1_cmp_eq00008_SW0 (N77)
-     LUT4_D:I3->O         15   0.704   1.192  wSourceDataMUX1_cmp_eq00008 (wSourceDataMUX1_cmp_eq0000)
-     LUT3:I0->O            3   0.704   0.531  wSourceDataMUX1<14>1 (wSourceDataMUX1<14>)
-     MULT18X18SIO:A14->P15    1   4.834   0.595  Mmult__AUX_1 (_AUX_1<15>)
-     LUT4:I0->O            4   0.704   0.666  rResult<15> (rResult<15>)
-     LUT3:I1->O            3   0.704   0.706  wSourceDataMUX0<15>1 (wSourceDataMUX0<15>)
+     LUT3:I2->O           18   0.704   1.147  wIP<0>1 (wIP<0>)
+     LUT4:I1->O            1   0.704   0.000  InstructionRom/oInstruction_or0000_F (N93)
+     MUXF5:I0->O           5   0.321   0.712  InstructionRom/oInstruction_or0000 (InstructionRom/oInstruction_or0000)
+     LUT3:I1->O           18   0.704   1.072  InstructionRom/oInstruction<10>1 (wInstruction<10>)
+     LUT4:I3->O            1   0.704   0.424  wB_cmp_eq00008_SW0 (N85)
+     LUT4_D:I3->LO         1   0.704   0.275  wB_cmp_eq00008 (N101)
+     LUT3:I0->O            4   0.704   0.587  wB<0>1 (wB<0>)
+     MULT18X18SIO:B0->P0    1   3.657   0.424  Mmult__AUX_1 (_AUX_1<0>)
+     LUT4:I3->O            4   0.704   0.666  rResult<0> (rResult<0>)
+     LUT3:I1->O            3   0.704   0.531  wA<0>1 (wA<0>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<0> (Madd_rResult_addsub0000_cy<0>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<1> (rResult_addsub0000<1>)
+     LUT4:I0->O            4   0.704   0.666  rResult<1> (rResult<1>)
+     LUT3:I1->O            3   0.704   0.531  wA<1>1 (wA<1>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<1> (Madd_rResult_addsub0000_cy<1>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<2> (rResult_addsub0000<2>)
+     LUT4:I0->O            4   0.704   0.666  rResult<2> (rResult<2>)
+     LUT3:I1->O            3   0.704   0.531  wA<2>1 (wA<2>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<2> (Madd_rResult_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<3> (rResult_addsub0000<3>)
+     LUT4:I0->O            4   0.704   0.666  rResult<3> (rResult<3>)
+     LUT3:I1->O            3   0.704   0.531  wA<3>1 (wA<3>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<3> (Madd_rResult_addsub0000_cy<3>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<4> (rResult_addsub0000<4>)
+     LUT4:I2->O            4   0.704   0.666  rResult<4> (rResult<4>)
+     LUT3:I1->O            3   0.704   0.531  wA<4>1 (wA<4>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<4> (Madd_rResult_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<5> (rResult_addsub0000<5>)
+     LUT4:I0->O            4   0.704   0.666  rResult<5> (rResult<5>)
+     LUT3:I1->O            3   0.704   0.531  wA<5>1 (wA<5>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<5> (Madd_rResult_addsub0000_cy<5>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<6> (rResult_addsub0000<6>)
+     LUT4:I2->O            4   0.704   0.666  rResult<6> (rResult<6>)
+     LUT3:I1->O            3   0.704   0.531  wA<6>1 (wA<6>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<6> (Madd_rResult_addsub0000_cy<6>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<7> (rResult_addsub0000<7>)
+     LUT4:I0->O            4   0.704   0.666  rResult<7> (rResult<7>)
+     LUT3:I1->O            3   0.704   0.531  wA<7>1 (wA<7>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<7> (Madd_rResult_addsub0000_cy<7>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<8> (rResult_addsub0000<8>)
+     LUT4:I0->O            4   0.704   0.666  rResult<8> (rResult<8>)
+     LUT3:I1->O            3   0.704   0.531  wA<8>1 (wA<8>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<8> (Madd_rResult_addsub0000_cy<8>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<9> (rResult_addsub0000<9>)
+     LUT4:I0->O            4   0.704   0.666  rResult<9> (rResult<9>)
+     LUT3:I1->O            3   0.704   0.531  wA<9>1 (wA<9>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<9> (Madd_rResult_addsub0000_cy<9>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<10> (rResult_addsub0000<10>)
+     LUT4:I0->O            4   0.704   0.666  rResult<10> (rResult<10>)
+     LUT3:I1->O            3   0.704   0.531  wA<10>1 (wA<10>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<10> (Madd_rResult_addsub0000_cy<10>)
+     XORCY:CI->O           1   0.804   0.595  Madd_rResult_addsub0000_xor<11> (rResult_addsub0000<11>)
+     LUT4:I0->O            4   0.704   0.666  rResult<11> (rResult<11>)
+     LUT3:I1->O            3   0.704   0.531  wA<11>1 (wA<11>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<11> (Madd_rResult_addsub0000_cy<11>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<12> (rResult_addsub0000<12>)
+     LUT4:I2->O            4   0.704   0.666  rResult<12> (rResult<12>)
+     LUT3:I1->O            3   0.704   0.531  wA<12>1 (wA<12>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<12> (Madd_rResult_addsub0000_cy<12>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<13> (rResult_addsub0000<13>)
+     LUT4:I2->O            4   0.704   0.666  rResult<13> (rResult<13>)
+     LUT3:I1->O            3   0.704   0.531  wA<13>1 (wA<13>)
+     MUXCY:DI->O           1   0.888   0.000  Madd_rResult_addsub0000_cy<13> (Madd_rResult_addsub0000_cy<13>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<14> (rResult_addsub0000<14>)
+     LUT4:I2->O            4   0.704   0.666  rResult<14> (rResult<14>)
+     LUT3:I1->O            3   0.704   0.531  wA<14>1 (wA<14>)
+     MUXCY:DI->O           0   0.888   0.000  Madd_rResult_addsub0000_cy<14> (Madd_rResult_addsub0000_cy<14>)
+     XORCY:CI->O           1   0.804   0.455  Madd_rResult_addsub0000_xor<15> (rResult_addsub0000<15>)
+     LUT4:I2->O            4   0.704   0.666  rResult<15> (rResult<15>)
+     LUT3:I1->O            3   0.704   0.706  wA<15>1 (wA<15>)
      LUT2:I0->O            1   0.704   0.000  Mcompar_rBranchTaken_cmp_le0000_lut<15> (Mcompar_rBranchTaken_cmp_le0000_lut<15>)
      MUXCY:S->O            1   0.864   0.424  Mcompar_rBranchTaken_cmp_le0000_cy<15> (rBranchTaken_cmp_le0000)
-     LUT4:I3->O           25   0.704   1.339  rBranchTaken1 (rBranchTaken)
-     LUT2:I1->O            1   0.704   0.420  _or0000_inv1 (_or0000_inv)
-     MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<0> (IP/Mcount_Q_cy<0>)
+     LUT4_D:I3->O         23   0.704   1.206  rBranchTaken1 (rBranchTaken)
+     LUT4:I3->O            1   0.704   0.000  IP/Mcount_Q_lut<0> (IP/Mcount_Q_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  IP/Mcount_Q_cy<0> (IP/Mcount_Q_cy<0>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<1> (IP/Mcount_Q_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<2> (IP/Mcount_Q_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  IP/Mcount_Q_cy<3> (IP/Mcount_Q_cy<3>)
@@ -585,8 +718,8 @@ Offset:              27.099ns (Levels of Logic = 31)
      XORCY:CI->O           1   0.804   0.000  IP/Mcount_Q_xor<15> (IP/Mcount_Q15)
      FD:D                      0.308          IP/Q_15
     ----------------------------------------
-    Total                     27.099ns (16.978ns logic, 10.121ns route)
-                                       (62.7% logic, 37.3% route)
+    Total                     98.670ns (63.410ns logic, 35.260ns route)
+                                       (64.3% logic, 35.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clock'
@@ -610,15 +743,15 @@ Offset:              4.283ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.37 secs
+Total REAL time to Xst completion: 41.00 secs
+Total CPU time to Xst completion: 34.65 secs
  
 --> 
 
 
-Total memory usage is 526144 kilobytes
+Total memory usage is 525956 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   45 (   0 filtered)
+Number of warnings :   62 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

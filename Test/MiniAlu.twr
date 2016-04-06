@@ -2,7 +2,7 @@
 Release 14.7 Trace  (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-/home/nano/Desktop/LabDigitales/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce
+/home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce
 -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MiniAlu.twx MiniAlu.ncd -o
 MiniAlu.twr MiniAlu.pcf
 
@@ -45,7 +45,7 @@ Setup/Hold to clock Clock
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-Reset       |  145.912(R)|   -0.816(R)|Clock_BUFGP       |   0.000|
+Reset       |  141.301(R)|    0.972(R)|Clock_BUFGP       |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock Clock to Pad
@@ -53,14 +53,14 @@ Clock Clock to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-oLed<0>     |    7.733(R)|Clock_BUFGP       |   0.000|
-oLed<1>     |    7.866(R)|Clock_BUFGP       |   0.000|
-oLed<2>     |    8.139(R)|Clock_BUFGP       |   0.000|
-oLed<3>     |    7.734(R)|Clock_BUFGP       |   0.000|
-oLed<4>     |    7.738(R)|Clock_BUFGP       |   0.000|
-oLed<5>     |    8.014(R)|Clock_BUFGP       |   0.000|
-oLed<6>     |    9.113(R)|Clock_BUFGP       |   0.000|
-oLed<7>     |    8.890(R)|Clock_BUFGP       |   0.000|
+oLed<0>     |    7.723(R)|Clock_BUFGP       |   0.000|
+oLed<1>     |    7.739(R)|Clock_BUFGP       |   0.000|
+oLed<2>     |    7.755(R)|Clock_BUFGP       |   0.000|
+oLed<3>     |    7.697(R)|Clock_BUFGP       |   0.000|
+oLed<4>     |    7.422(R)|Clock_BUFGP       |   0.000|
+oLed<5>     |    7.414(R)|Clock_BUFGP       |   0.000|
+oLed<6>     |    7.477(R)|Clock_BUFGP       |   0.000|
+oLed<7>     |    7.429(R)|Clock_BUFGP       |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock Clock
@@ -68,11 +68,11 @@ Clock to Setup on destination clock Clock
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clock          |  145.686|         |         |         |
+Clock          |  141.779|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Apr  5 14:42:10 2016 
+Analysis completed Tue Apr  5 17:54:12 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:

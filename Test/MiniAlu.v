@@ -19,7 +19,7 @@ wire [3:0]  wOperation;
 reg [15:0]   rResult, rResultTop;
 wire [7:0]  wSourceAddr0,wSourceAddr1,wDestination, wInstructionSave;
 wire [15:0] wSourceData0,wSourceData1,wIPInitialValue,wImmediateValue;
-wire [15:0] wSourceDataMUX0,wSourceDataMUX1;
+wire [15:0] wA,wB;
 ROM InstructionRom 
 (
 	.iAddress(     wIP          ),
@@ -92,7 +92,7 @@ FFD_POSEDGE_SYNCRONOUS_RESET # ( 8 ) FF_LEDS
 	.Clock(Clock),
 	.Reset(Reset),
 	.Enable( rFFLedEN ),
-	.D( wSourceData1 ),
+	.D( wB ),
 	.Q( oLed    )
 );
 
@@ -110,8 +110,8 @@ FFD_POSEDGE_SYNCRONOUS_RESET # ( 8 ) FF_InsAnterior
 assign wImmediateValue = {wSourceAddr1,wSourceAddr0};
 //HAZARD CONTROL RED WRITE
 //RegistrosDeLectura == RegistrosDeEscritura Anterior => Asignar Data como el resultado
-assign wSourceDataMUX0 = ( wInstruction[7:0] == wInstructionSave) ? wSourceData0 : rResult;
-assign wSourceDataMUX1 = ( wInstruction[15:8] == wInstructionSave) ? wSourceData1 : rResult;
+assign wA = ( wInstruction[7:0] == wInstructionSave) ? rResult : wSourceData0;
+assign wB = ( wInstruction[15:8] == wInstructionSave) ? rResult: wSourceData1;
 
 always @ ( * ) begin
 	case (wOperation)
@@ -129,7 +129,7 @@ always @ ( * ) begin
 		rFFLedEN     <= 1'b0;
 		rBranchTaken <= 1'b0;
 		rWriteEnable <= 1'b1;
-		{rResultTop,rResult}  <= wSourceDataMUX1 * wSourceDataMUX0;
+		{rResultTop,rResult}  <= wA * wB;
 	end
 	//-------------------------------------
 	`ADD:
@@ -137,7 +137,7 @@ always @ ( * ) begin
 		rFFLedEN     <= 1'b0;
 		rBranchTaken <= 1'b0;
 		rWriteEnable <= 1'b1;
-		rResult      <= wSourceDataMUX1 + wSourceDataMUX0;
+		rResult      <= wA + wB;
 	end
 	//-------------------------------------
 	`STO:
@@ -153,7 +153,7 @@ always @ ( * ) begin
 		rFFLedEN     <= 1'b0;
 		rWriteEnable <= 1'b0;
 		rResult      <= 0;
-		if (wSourceDataMUX1 <= wSourceDataMUX0 )
+		if (wB <= wA )
 			rBranchTaken <= 1'b1;
 		else
 			rBranchTaken <= 1'b0;

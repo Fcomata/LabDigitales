@@ -12,15 +12,18 @@ always @ ( iAddress )
 begin
 	case (iAddress)
 
-	0: oInstruction = { `NOP ,24'd4000    };
-	1: oInstruction = { `STO , `R7,16'd1};
-	2: oInstruction = { `STO ,`R3,16'd5}; 
-	3: oInstruction = { `STO, `R4,16'd10};
-	4: oInstruction = { `STO, `R5,16'd8 };
-	5: oInstruction = { `ADD ,`R4,`R5,`R3}; 
-	6: oInstruction = { `ADD ,`R5,`R4,`R3}; 
-	7: oInstruction = { `NOP ,24'd4000    };
-	8: oInstruction = { `NOP ,24'd4000    };
+	2: oInstruction = { `NOP ,24'd4000    };
+	11: oInstruction = { `NOP ,24'd4000    };
+	12: oInstruction = { `NOP ,24'd4000    };
+	13: oInstruction = { `STO , `R7,16'd1};
+	14: oInstruction = { `STO ,`R3,16'd5}; 
+	15: oInstruction = { `STO, `R4,16'd10};
+	16: oInstruction = { `STO, `R5,16'd8 };
+	17: oInstruction = { `ADD ,`R4,`R5,`R3}; 
+	18: oInstruction = { `ADD ,`R5,`R4,`R3}; 
+	19: oInstruction = { `NOP ,24'd4000    };
+	20: oInstruction = { `NOP ,24'd4000    };
+	
 	default:
 		oInstruction = { `LED ,  24'b10101010 };		//NOP
 	endcase	
