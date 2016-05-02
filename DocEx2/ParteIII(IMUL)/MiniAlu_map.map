@@ -1,0 +1,13 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Map Application Log File for Design 'MiniAlu'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off
+-c 100 -o MiniAlu_map.ncd MiniAlu.ngd MiniAlu.pcf 
+Target Device  : xc3s500e
+Target Package : fg320
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.55 $
+Mapped Date    : Tue Apr  5 18:12:09 2016
+

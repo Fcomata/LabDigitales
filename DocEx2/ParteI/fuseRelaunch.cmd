@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench_isim_beh.exe" -prj "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench_beh.prj" "work.TestBench" "work.glbl" 

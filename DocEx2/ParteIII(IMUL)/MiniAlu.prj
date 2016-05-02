@@ -1,0 +1,5 @@
+verilog work "TMUL.v"
+verilog work "RAM.v"
+verilog work "Module_ROM.v"
+verilog work "Collaterals.v"
+verilog work "MiniAlu.v"
