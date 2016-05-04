@@ -1,0 +1,144 @@
+`timescale 1ns / 1ps
+`define STATE_RESET 0
+`define STATE_CONFIG_INIT_0 1
+`define STATE_CONFIG_INIT_1 2
+`define STATE_CONFIG_INIT_2 3
+`define STATE_CONFIG_INIT_3 4
+
+
+
+module Module_Config_LCD
+(
+	input wire Clock,
+	input wire Reset,
+	input wire Nibble,
+	output wire oLCD_Enabled,
+	output reg oLCD_RegisterSelect, //0=Command, 1=Data
+	output wire oLCD_StrataFlashControl,
+	output wire oLCD_ReadWrite,
+	output reg[3:0] oLCD_Data
+	);
+
+
+
+reg rWrite_Enabled;
+assign oLCD_ReadWrite = 0; //I only Write to the LCD display, never Read from it
+assign oLCD_StrataFlashControl = 1; //StrataFlash disabled. Full read/write access to LCD
+assign oLCD_Enabled = 1;
+
+reg [7:0] rCurrentState,rNextState;
+reg [31:0] rTimeCount;
+reg rTimeCountReset;
+wire wWriteDone;
+
+//----------------------------------------------
+//Next State and delay logic
+	always @ ( posedge Clock )
+
+	if (Reset)
+		begin
+			rCurrentState = `STATE_RESET;
+			rTimeCount <= 32'b0;
+		end
+		else
+		begin
+			if (rTimeCountReset)
+				rTimeCount <= 32'b0;
+		else
+			rTimeCount <= rTimeCount + 32'b1;
+			rCurrentState <= rNextState;
+		end
+	end
+//----------------------------------------------
+//Current state and output logic
+	always @ ( * )
+	begin
+		case (rCurrentState)
+//------------------------------------------
+		`STATE_RESET:
+			begin
+				rWrite_Enabled = 1'b0;
+				oLCD_Data = 4'h0;
+				oLCD_RegisterSelect = 1'b0;
+				rTimeCountReset = 1'b0;
+				rNextState = `STATE_CONFIG_INIT_0;
+			end
+
+			//------------------------------------------
+			/*
+Issue a Function Set command, 0x28, to configure the display for operation on the
+Spartan-3E Starter Kit board.
+			*/
+
+			`STATE_CONFIG_INIT_0:
+			begin
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = 4'h2;
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					//SECOND NIBBLE
+					oLCD_Data = oLCD_Data = 4'h8;
+
+					if (rTimeCount > 32'd2050 ) 
+						rNextState = `STATE_POWERON_INIT_1;
+						rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_0;
+				end
+			
+			end
+
+			//------------------------------------------
+			/*
+Issue an Entry Mode Set command, 0x06, to set the display to automatically
+increment the address pointer.
+			*/
+
+			`STATE_CONFIG_INIT_1:
+			begin
+
+			end
+			//------------------------------------------
+			/*
+Issue a Display On/Off command, 0x0C, to turn the display on and disables the
+cursor and blinking.
+			*/
+
+			`STATE_CONFIG_INIT_2:
+			begin
+
+			end
+
+
+			//------------------------------------------
+/*
+Finally, issue a Clear Display command. Allow at least 1.64 ms (82,000 clock cycles)
+after issuing this command.
+*/
+			//------------------------------------------
+
+			`STATE_CONFIG_INIT_3:
+			begin
+
+			end
+
+			
+
+			default:
+			begin
+				rWrite_Enabled = 1'b0;
+				oLCD_Data = 4'h0;
+				oLCD_RegisterSelect = 1'b0;
+				rTimeCountReset = 1'b0;
+				rNextState = `STATE_RESET;
+			end
+//------------------------------------------
+		endcase
+	end
+endmodule

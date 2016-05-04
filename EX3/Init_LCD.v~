@@ -9,12 +9,24 @@
 `define STATE_POWERON_INIT_6 7
 `define STATE_POWERON_INIT_7 8
 `define STATE_POWERON_INIT_8 9
+`define STATE_POWERON_INIT_9 10
+`define STATE_POWERON_INIT_10 11
+`define STATE_POWERON_INIT_11 12
+`define STATE_POWERON_INIT_12 13
+`define STATE_POWERON_INIT_13 14
+`define STATE_POWERON_INIT_14 15
+`define STATE_POWERON_INIT_15 16
+`define STATE_POWERON_INIT_16 17
+`define STATE_POWERON_INIT_17 18
+`define STATE_POWERON_INIT_18 19
+`define STATE_POWERON_INIT_19 20
 
-
-module Module_LCD_Control
+module Module_Power_On_LCD
 (
 	input wire Clock,
 	input wire Reset,
+	input wire LCD_Write,
+	input wire Nibble[7:0],
 	output wire oLCD_Enabled,
 	output reg oLCD_RegisterSelect, //0=Command, 1=Data
 	output wire oLCD_StrataFlashControl,
@@ -22,9 +34,12 @@ module Module_LCD_Control
 	output reg[3:0] oLCD_Data
 	);
 
+
 reg rWrite_Enabled;
 assign oLCD_ReadWrite = 0; //I only Write to the LCD display, never Read from it
 assign oLCD_StrataFlashControl = 1; //StrataFlash disabled. Full read/write access to LCD
+assign oLCD_Enabled = 1;
+
 reg [7:0] rCurrentState,rNextState;
 reg [31:0] rTimeCount;
 reg rTimeCountReset;
@@ -61,6 +76,8 @@ wire wWriteDone;
 				oLCD_RegisterSelect = 1'b0;
 				rTimeCountReset = 1'b0;
 				rNextState = `STATE_POWERON_INIT_0;
+				
+
 			end
 
 			//------------------------------------------
@@ -74,7 +91,9 @@ wire wWriteDone;
 				rWrite_Enabled = 1'b0;
 				oLCD_Data = 4'h0;
 				oLCD_RegisterSelect = 1'b0; //these are commands
-				if (rTimeCount > 32'd750000 )
+
+
+			if (rTimeCount > 32'd750000 )
 				begin
 					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_1;
@@ -96,11 +115,17 @@ wire wWriteDone;
 				rWrite_Enabled = 1'b1;
 				oLCD_Data = 4'h3;
 				oLCD_RegisterSelect = 1'b0; //these are commands
-				rTimeCountReset = 1'b1;
-				if ( wWriteDone )
+
+				if (rTimeCount > 32'd12 )
+				begin
+					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_2;
+				end
 				else
+				begin
+					rTimeCountReset = 1'b0;
 					rNextState = `STATE_POWERON_INIT_1;
+				end
 			end
 			//------------------------------------------
 			/*
@@ -110,8 +135,10 @@ wire wWriteDone;
 			`STATE_POWERON_INIT_2:
 			begin
 				rWrite_Enabled = 1'b0;
-				oLCD_Data = 4'h3;
+				oLCD_Data =  4'h0;
 				oLCD_RegisterSelect = 1'b0; //these are commands
+	
+
 				if (rTimeCount > 32'd205000 )
 				begin
 					rTimeCountReset = 1'b1;
@@ -132,15 +159,24 @@ wire wWriteDone;
 
 			`STATE_POWERON_INIT_3:
 			begin
-				rWrite_Enabled = 
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
-				rTimeCountReset = 
+				rWrite_Enabled = 1'b1;
+				oLCD_Data = 4'h3;
+				oLCD_RegisterSelect = 1'b0;
+				rTimeCountReset = 1'b1;
 
-				if ( wWriteDone )
+
+
+			if (rTimeCount > 32'd12 )
+				begin
+					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_4;
+				end
 				else
+				begin
+					rTimeCountReset = 1'b0;
 					rNextState = `STATE_POWERON_INIT_3;
+				end
+			
 			end
 
 			//------------------------------------------
@@ -153,9 +189,9 @@ wire wWriteDone;
 			`STATE_POWERON_INIT_4:
 			begin
 
-				rWrite_Enabled = 
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
+				rWrite_Enabled = 1'b0;
+				oLCD_Data =  4'h0;
+				oLCD_RegisterSelect =  1'b0;
 
 				if (rTimeCount > 32'd5000 )
 				begin
@@ -178,14 +214,22 @@ wire wWriteDone;
 
 			`STATE_POWERON_INIT_5:
 			begin
-				rWrite_Enabled = 
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
-				rTimeCountReset = 
-				if ( wWriteDone )
-					rNextState = `STATE_POWERON_INIT_6;
-				else
-					rNextState = `STATE_POWERON_INIT_5;
+				rWrite_Enabled = 1'b1;
+				oLCD_Data = 4'h3;
+				oLCD_RegisterSelect = 1'b0;
+				rTimeCountReset = 1'b1;
+
+				if (rTimeCount > 32'd12 )
+					begin
+						rTimeCountReset = 1'b1;
+						rNextState = `STATE_POWERON_INIT_6;
+					end
+					else
+					begin
+						rTimeCountReset = 1'b0;
+						rNextState = `STATE_POWERON_INIT_5;
+					end
+			
 			end
 
 			//------------------------------------------
@@ -198,9 +242,9 @@ wire wWriteDone;
 			`STATE_POWERON_INIT_6:
 			begin
 
-				rWrite_Enabled = 
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
+				rWrite_Enabled = 1'b0;
+				oLCD_Data =  4'h0;
+				oLCD_RegisterSelect = 1'b0;
 				if (rTimeCount > 32'd2000 )
 				begin
 					rTimeCountReset = 1'b1;
@@ -222,14 +266,22 @@ wire wWriteDone;
 
 			`STATE_POWERON_INIT_7:
 			begin
-				rWrite_Enabled =
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
-				rTimeCountReset =
-				if ( wWriteDone )
+				rWrite_Enabled = 1'b1;
+				oLCD_Data = 4'h2;
+				oLCD_RegisterSelect = 1'b0;
+				rTimeCountReset = 1'b1;
+
+				if (rTimeCount > 32'd12 )
+				begin
+					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_8;
+				end
 				else
+				begin
+					rTimeCountReset = 1'b0;
 					rNextState = `STATE_POWERON_INIT_7;
+				end
+			
 			end
 
 			//------------------------------------------
@@ -242,19 +294,268 @@ wire wWriteDone;
 			begin
 			end
 
-				rWrite_Enabled = 
-				oLCD_Data = 
-				oLCD_RegisterSelect = 
+				rWrite_Enabled = 1'b0;
+				oLCD_Data =  4'h0;
+				oLCD_RegisterSelect = 1'b0;
+
 				if (rTimeCount > 32'd2000 )
 				begin
 					rTimeCountReset = 1'b1;
-					rNextState = //END
+					rNextState = `STATE_POWERON_INIT_9; //END POWER ON
 				end
 				else
 				begin
 					rTimeCountReset = 1'b0;
 					rNextState = `STATE_POWERON_INIT_8;
 				end
+
+
+
+
+
+			//------------------------------------------
+			/*
+			Issue a Function Set command, 0x28, to POWERONure the display for operation on the
+			Spartan-3E Starter Kit board.
+			*/
+
+			`STATE_POWERON_INIT_9:
+			begin
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = 4'h2;
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_10;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_9;
+				end
+			
+			end
+
+			`STATE_POWERON_INIT_10:
+			begin
+
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//SECOND NIBBLE
+				oLCD_Data = 4'h8;
+				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_11;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_10;
+				end
+				
+			end
+
+
+			//------------------------------------------
+			/*
+			Issue an Entry Mode Set command, 0x06, to set the display to automatically
+			increment the address pointer.
+			*/
+
+			`STATE_POWERON_INIT_11:
+			begin
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = 4'h0;
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_12;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_11;
+				end
+			
+			end
+
+			`STATE_POWERON_INIT_12:
+			begin
+
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//SECOND NIBBLE
+				oLCD_Data = 4'h6;
+				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_13;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_12;
+				end
+				
+			end
+			//------------------------------------------
+			/*
+			Issue a Display On/Off command, 0x0C, to turn the display on and disables the
+			cursor and blinking.
+			*/
+
+			`STATE_POWERON_INIT_13:
+			begin
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = 4'h0;
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_14;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_13;
+				end
+			
+			end
+
+			`STATE_POWERON_INIT_14:
+			begin
+
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//SECOND NIBBLE
+				oLCD_Data = 4'hC;
+				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_15;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_14;
+				end
+				
+			end
+
+
+			//------------------------------------------
+			/*
+			Finally, issue a Clear Display command. Allow at least 1.64 ms (82,000 clock cycles)
+			after issuing this command.
+			*/
+			//------------------------------------------
+
+			`STATE_POWERON_INIT_15:
+			begin
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = 4'h0;
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_16;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_15;
+				end
+			
+			end
+
+			`STATE_POWERON_INIT_16:
+			begin
+
+				oLCD_RegisterSelect = 0; //0=Command, 1=Data
+				//SECOND NIBBLE
+				oLCD_Data = 4'h1;
+				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_17;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_16;
+				end
+				
+			end
+
+			//------------------------------------------
+			/*
+			Write Characters
+			*/
+			//------------------------------------------
+
+			`STATE_POWERON_INIT_17:
+			begin
+				oLCD_RegisterSelect = 1;
+				if(LCD_Write)
+					rNextState = `STATE_POWERON_INIT_18;
+				else
+					rNextState = `STATE_POWERON_INIT_17;
+			end
+
+			`STATE_POWERON_INIT_18:
+			begin
+				oLCD_RegisterSelect = 1; //0=Command, 1=Data
+				//FIRST NIBBLE
+				oLCD_Data = Nibble[7:4];
+
+				if (rTimeCount > 32'd50 ) //Pasa 1uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_19;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_18;
+				end
+			
+			end
+
+			`STATE_POWERON_INIT_19:
+			begin
+
+				oLCD_RegisterSelect = 1; //0=Command, 1=Data
+				//SECOND NIBBLE
+				oLCD_Data = Nibble[3:0];
+				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
+				begin
+					rNextState = `STATE_POWERON_INIT_17;
+					rTimeCountReset = 1'b1;
+				end
+
+				else
+				begin
+					rTimeCountReset = 1'b0;
+					rNextState = `STATE_POWERON_INIT_19;
+				end
+				
+			end
+
+			
+
 
 			default:
 			begin
