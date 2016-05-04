@@ -1,0 +1,7 @@
+verilog isim_temp "../ParteIII(IMUL)/Multiplicacion.v"
+verilog isim_temp "RAM.v"
+verilog isim_temp "Module_ROM.v"
+verilog isim_temp "Collaterals.v"
+verilog isim_temp "MiniAlu.v"
+verilog isim_temp "TestBench.v"
+verilog isim_temp "/home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE//verilog/src/glbl.v"
