@@ -113,7 +113,7 @@ FFD_POSEDGE_SYNCRONOUS_RESET # ( 8 ) FFNibble
 				RstAlu = 1'b1;
 				R_BUSY <= 1'b0;
 				
-			if (rTimeCount > 32'd75)//0000 )
+			if (rTimeCount > 32'd750000 )
 				begin
 					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_1;

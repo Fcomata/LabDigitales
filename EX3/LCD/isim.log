@@ -13,15 +13,40 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING:  For instance uut/IP/, width 16 of formal port Initial is not equal to width 32 of actual constant.
+WARNING: File "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 24.  For instance uut/FF_LEDS/, width 8 of formal port D is not equal to width 16 of actual signal wB.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# exit 0
 # restart
-# run 10ms
+# run 15ms
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 # restart
-# run 2245us
+# run 15ms
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# restart
-# run 2245us
+Stopped at time : 6368920 ns : File "/home/nano/Desktop/LabDigitales/EX3/LCD/TestBench.v" Line 43
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING:  For instance uut/IP/, width 16 of formal port Initial is not equal to width 32 of actual constant.
+WARNING: File "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 24.  For instance uut/FF_LEDS/, width 8 of formal port D is not equal to width 16 of actual signal wB.
+# run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+# run 15ms
+Stopped at time : 2942695 ns : File "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 87
+# exit 0
