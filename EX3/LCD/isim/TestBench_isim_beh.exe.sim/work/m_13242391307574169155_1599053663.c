@@ -91,22 +91,22 @@ LAB8:    goto LAB2;
 LAB6:    xsi_set_current_line(39, ng0);
     t11 = ((char*)((ng1)));
     t12 = (t0 + 2064);
-    xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 16, 0LL);
+    xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 4, 0LL);
     goto LAB8;
 
 LAB10:    xsi_set_current_line(43, ng0);
     t4 = (t0 + 1664U);
     t5 = *((char **)t4);
     t4 = (t0 + 2064);
-    xsi_vlogvar_wait_assign_value(t4, t5, 0, 0, 16, 0LL);
+    xsi_vlogvar_wait_assign_value(t4, t5, 0, 0, 4, 0LL);
     goto LAB12;
 
 }
 
 
-extern void work_m_13242391307574169155_4065870076_init()
+extern void work_m_13242391307574169155_1599053663_init()
 {
 	static char *pe[] = {(void *)Always_36_0};
-	xsi_register_didat("work_m_13242391307574169155_4065870076", "isim/TestBench_isim_beh.exe.sim/work/m_13242391307574169155_4065870076.didat");
+	xsi_register_didat("work_m_13242391307574169155_1599053663", "isim/TestBench_isim_beh.exe.sim/work/m_13242391307574169155_1599053663.didat");
 	xsi_register_executes(pe);
 }

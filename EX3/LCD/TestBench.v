@@ -34,7 +34,7 @@ module TestBench;
 	// Instantiate the Unit Under Test (UUT)
 	MiniAlu uut (
 		.Clock(Clock), 
-		.Reset(Reset), 
+		.Reset_I(Reset), 
 		.oLed(oLed)
 	);
 	

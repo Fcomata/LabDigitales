@@ -5,28 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 25: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">iA</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 68: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Initial</arg>&gt;. Formal port size is <arg fmt="%d" index="2">16</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 48: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Initial</arg>&gt;. Formal port size is <arg fmt="%d" index="2">16</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 59: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">D</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">4</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 60: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Q</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">4</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 97: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">D</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">16</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 21: Element index <arg fmt="%d" index="1">16</arg> into <arg fmt="%s" index="2">wR</arg> is out of bounds
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 28: Element index <arg fmt="%d" index="1">16</arg> into <arg fmt="%s" index="2">wCarry</arg> is out of bounds
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 57: Element index <arg fmt="%d" index="1">16</arg> into <arg fmt="%s" index="2">wR</arg> is out of bounds
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 117: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">D</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">16</arg>-bit.
 </msg>
 
 </messages>

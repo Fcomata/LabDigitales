@@ -25,6 +25,7 @@ wire [15:0] wA,wB,wResltAnt;
 wire [3:0] oLCD_Data;
 wire oLCD_Enabled, oLCD_RegisterSelect,oLCD_StrataFlashControl, oLCD_ReadWrite;
 wire Reset; //Reset que sale de LCD
+
 ROM InstructionRom 
 (
 	.iAddress(     wIP          ),
@@ -70,7 +71,7 @@ UPCOUNTER_POSEDGE IP
 );
 assign wIP = (rBranchTaken) ? wIPInitialValue : wIP_temp;
 
-FFD_POSEDGE_SYNCRONOUS_RESET # ( 8 ) FFD1 
+FFD_POSEDGE_SYNCRONOUS_RESET # ( 4 ) FFD1 
 (
 	.Clock(Clock),
 	.Reset(Reset),
@@ -243,15 +244,6 @@ always @ ( * ) begin
 		rCaracter    <= {wA[3:0],wB[3:0]}; //
 	end
 	
-	`SHL:
-	begin
-		rFFLedEN     <= 1'b0;
-		rWriteEnable <= 1'b0;
-		rResult      <= wA<<wB;
-		rBranchTaken <= 1'b0;
-		rWriteLCD 	 <= 1;
-		rCaracter    <= 0; //
-	end
 	
 	default:
 	begin

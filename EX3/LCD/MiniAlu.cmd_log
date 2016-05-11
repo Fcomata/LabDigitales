@@ -81,3 +81,4 @@ xst -intstyle ise -ifn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.xst" -of
 xst -intstyle ise -ifn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.xst" -ofn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.syr" 
 xst -intstyle ise -ifn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.xst" -ofn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.syr" 
 xst -intstyle ise -ifn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.xst" -ofn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.syr" 
+xst -intstyle ise -ifn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.xst" -ofn "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.syr" 

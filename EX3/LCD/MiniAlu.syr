@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> 
 Reading design: MiniAlu.prj
@@ -279,18 +279,14 @@ WARNING:Xst:646 - Signal <oLCD_RegisterSelect> is assigned but never used. This 
 WARNING:Xst:646 - Signal <oLCD_ReadWrite> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <oLCD_Enabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <oLCD_Data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 16x1-bit ROM for signal <rFFLedEN>.
-    Found 16-bit comparator lessequal for signal <rBranchTaken$cmp_le0000> created at line 209.
-    Found 16-bit adder for signal <rResult$addsub0000> created at line 187.
-    Found 16-bit shifter logical left for signal <rResult$shift0001> created at line 250.
-    Found 8-bit comparator equal for signal <wA$cmp_eq0000> created at line 144.
-    Found 8-bit comparator equal for signal <wB$cmp_eq0000> created at line 145.
+    Found 16-bit comparator lessequal for signal <rBranchTaken$cmp_le0000> created at line 210.
+    Found 16-bit adder for signal <rResult$addsub0000> created at line 188.
+    Found 8-bit comparator equal for signal <wA$cmp_eq0000> created at line 145.
+    Found 8-bit comparator equal for signal <wB$cmp_eq0000> created at line 146.
     Summary:
-	inferred   1 ROM(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   1 Multiplier(s).
 	inferred   3 Comparator(s).
-	inferred   1 Combinational logic shifter(s).
 Unit <MiniAlu> synthesized.
 
 
@@ -300,8 +296,7 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  9x16-bit dual-port RAM                                : 2
-# ROMs                                                 : 2
- 16x1-bit ROM                                          : 1
+# ROMs                                                 : 1
  16x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
@@ -320,8 +315,6 @@ Macro Statistics
  16-bit comparator lessequal                           : 1
  32-bit comparator greater                             : 6
  8-bit comparator equal                                : 2
-# Logic shifters                                       : 1
- 16-bit shifter logical left                           : 1
 
 =========================================================================
 
@@ -402,8 +395,7 @@ Macro Statistics
 # FSMs                                                 : 1
 # RAMs                                                 : 2
  9x16-bit dual-port distributed RAM                    : 2
-# ROMs                                                 : 2
- 16x1-bit ROM                                          : 1
+# ROMs                                                 : 1
  16x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
@@ -421,8 +413,6 @@ Macro Statistics
  16-bit comparator lessequal                           : 1
  32-bit comparator greater                             : 6
  8-bit comparator equal                                : 2
-# Logic shifters                                       : 1
- 16-bit shifter logical left                           : 1
 
 =========================================================================
 
@@ -472,9 +462,64 @@ INFO:Xst:2261 - The FF/Latch <FFD3/Q_3> in Unit <MiniAlu> is equivalent to the f
 INFO:Xst:2261 - The FF/Latch <FFD1/Q_3> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD1/Q_0> 
 INFO:Xst:2261 - The FF/Latch <FFD2/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD2/Q_5> 
 INFO:Xst:2261 - The FF/Latch <FF_IDST/Q_1> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_IDST/Q_0> 
-Found area constraint ratio of 100 (+ 5) on block MiniAlu, actual ratio is 5.
-FlipFlop FFD1/Q_1 has been replicated 1 time(s)
-FlipFlop FFD1/Q_3 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block MiniAlu, actual ratio is 4.
+INFO:Xst:2260 - The FF/Latch <FF_Result/Q_11> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_10> 
+INFO:Xst:2260 - The FF/Latch <FF_Result/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_5> 
+INFO:Xst:2260 - The FF/Latch <FF_Result/Q_9> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_8> 
+INFO:Xst:2261 - The FF/Latch <FF_Result/Q_11> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_10> 
+INFO:Xst:2261 - The FF/Latch <FF_Result/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_5> 
+INFO:Xst:2261 - The FF/Latch <FF_Result/Q_9> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_8> 
+WARNING:Xst:2677 - Node <Mmult__AUX_1> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren16> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren15> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren14> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren13> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren12> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren10> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren9> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram16> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram15> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram14> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram13> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram12> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram10> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram9> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram8> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram7> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram6> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram5> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram4> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram3> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram2> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/Mram_Ram1> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_15> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_14> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_13> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_12> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_10> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_9> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut1_8> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_15> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_14> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_13> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_12> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_10> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_9> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_8> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_7> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_6> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_5> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_4> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_3> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_2> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_1> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <DataRam/oDataOut0_0> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_9> of sequential type is unconnected in block <MiniAlu>.
 
 Final Macro Processing ...
 
@@ -482,8 +527,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 119
- Flip-Flops                                            : 119
+# Registers                                            : 88
+ Flip-Flops                                            : 88
 
 =========================================================================
 
@@ -512,37 +557,32 @@ Design Statistics
 # IOs                              : 10
 
 Cell Usage :
-# BELS                             : 466
+# BELS                             : 382
 #      GND                         : 1
 #      INV                         : 8
 #      LUT1                        : 39
-#      LUT2                        : 21
-#      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 65
-#      LUT3_D                      : 3
-#      LUT4                        : 114
-#      LUT4_D                      : 5
-#      LUT4_L                      : 15
-#      MUXCY                       : 125
-#      MUXF5                       : 10
+#      LUT2                        : 23
+#      LUT3                        : 43
+#      LUT4                        : 87
+#      LUT4_D                      : 3
+#      LUT4_L                      : 4
+#      MUXCY                       : 114
+#      MUXF5                       : 11
 #      VCC                         : 1
-#      XORCY                       : 57
-# FlipFlops/Latches                : 120
-#      FD                          : 48
-#      FDR                         : 44
-#      FDRE                        : 24
+#      XORCY                       : 48
+# FlipFlops/Latches                : 89
+#      FD                          : 24
+#      FDR                         : 39
+#      FDRE                        : 22
 #      FDRS                        : 3
 #      LD                          : 1
-# RAMS                             : 32
-#      RAM16X1D                    : 32
+# RAMS                             : 8
+#      RAM16X1D                    : 8
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 9
 #      IBUF                        : 1
 #      OBUF                        : 8
-# MULTs                            : 1
-#      MULT18X18SIO                : 1
 =========================================================================
 
 Device utilization summary:
@@ -550,14 +590,13 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      177  out of   4656     3%  
- Number of Slice Flip Flops:            120  out of   9312     1%  
- Number of 4 input LUTs:                336  out of   9312     3%  
-    Number used as logic:               272
-    Number used as RAMs:                 64
+ Number of Slices:                      117  out of   4656     2%  
+ Number of Slice Flip Flops:             89  out of   9312     0%  
+ Number of 4 input LUTs:                223  out of   9312     2%  
+    Number used as logic:               207
+    Number used as RAMs:                 16
  Number of IOs:                          10
  Number of bonded IOBs:                  10  out of    232     4%  
- Number of MULT18X18SIOs:                 1  out of     20     5%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -581,7 +620,7 @@ Clock Information:
 -----------------------------------------------------------+-----------------------------+-------+
 Clock Signal                                               | Clock buffer(FF name)       | Load  |
 -----------------------------------------------------------+-----------------------------+-------+
-Clock                                                      | BUFGP                       | 151   |
+Clock                                                      | BUFGP                       | 96    |
 LCD/rTimeCountReset_not0001(LCD/rTimeCountReset_not00011:O)| NONE(*)(LCD/rTimeCountReset)| 1     |
 -----------------------------------------------------------+-----------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -597,7 +636,7 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 11.300ns (Maximum Frequency: 88.496MHz)
+   Minimum period: 11.158ns (Maximum Frequency: 89.622MHz)
    Minimum input arrival time before clock: 4.939ns
    Maximum output required time after clock: 4.283ns
    Maximum combinational path delay: No path found
@@ -608,29 +647,31 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clock'
-  Clock period: 11.300ns (frequency: 88.496MHz)
-  Total number of paths / destination ports: 31083 / 440
+  Clock period: 11.158ns (frequency: 89.622MHz)
+  Total number of paths / destination ports: 9638 / 196
 -------------------------------------------------------------------------
-Delay:               11.300ns (Levels of Logic = 5)
-  Source:            FF_IDST/Q_1 (FF)
-  Destination:       DataRam/Mram_Ram_ren12 (RAM)
+Delay:               11.158ns (Levels of Logic = 7)
+  Source:            LCD/rCurrentState_FSM_FFd1 (FF)
+  Destination:       DataRam/oDataOut1_7 (FF)
   Source Clock:      Clock rising
   Destination Clock: Clock rising
 
-  Data Path: FF_IDST/Q_1 to DataRam/Mram_Ram_ren12
+  Data Path: LCD/rCurrentState_FSM_FFd1 to DataRam/oDataOut1_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             2   0.591   0.622  FF_IDST/Q_1 (FF_IDST/Q_1)
-     LUT4_D:I0->O          1   0.704   0.424  wA_cmp_eq0000854_SW0 (N47)
-     LUT4_D:I3->O         11   0.704   0.968  wA_cmp_eq0000854_1 (wA_cmp_eq0000854)
-     LUT3:I2->O            1   0.704   0.420  wA<9>1 (wA<9>)
-     MULT18X18SIO:A9->P11    1   4.654   0.424  Mmult__AUX_1 (_AUX_1<11>)
-     LUT4:I3->O            3   0.704   0.000  rResult<11>86 (rResult<11>)
-     RAM16X1D:D                0.381          DataRam/Mram_Ram12
+     FDRS:C->Q            16   0.591   1.209  LCD/rCurrentState_FSM_FFd1 (LCD/rCurrentState_FSM_FFd1)
+     LUT4_L:I0->LO         1   0.704   0.104  LCD/rCurrentState_FSM_Out201_1 (LCD/rCurrentState_FSM_Out201)
+     LUT4:I3->O            4   0.704   0.591  wIP<0>3 (N21)
+     LUT4:I3->O           11   0.704   1.108  wIP<2>1 (wIP<2>)
+     LUT2:I0->O            1   0.704   0.424  InstructionRom/oInstruction<26>49 (InstructionRom/oInstruction<26>49)
+     LUT4:I3->O            1   0.704   0.424  wInstruction<8>24 (wInstruction<8>24)
+     LUT4:I3->O           17   0.704   1.051  wInstruction<8>43 (wInstruction<8>)
+     RAM16X1D:DPRA0->DPO    1   0.704   0.420  DataRam/Mram_Ram_ren1 (DataRam/_varindex0001<0>)
+     FD:D                      0.308          DataRam/oDataOut1_0
     ----------------------------------------
-    Total                     11.300ns (8.442ns logic, 2.858ns route)
-                                       (74.7% logic, 25.3% route)
+    Total                     11.158ns (5.827ns logic, 5.331ns route)
+                                       (52.2% logic, 47.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clock'
@@ -674,15 +715,15 @@ Offset:              4.283ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 44.00 secs
-Total CPU time to Xst completion: 43.48 secs
+Total REAL time to Xst completion: 40.00 secs
+Total CPU time to Xst completion: 38.90 secs
  
 --> 
 
 
-Total memory usage is 530304 kilobytes
+Total memory usage is 529896 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   46 (   0 filtered)
-Number of infos    :   14 (   0 filtered)
+Number of warnings :   97 (   0 filtered)
+Number of infos    :   20 (   0 filtered)
 

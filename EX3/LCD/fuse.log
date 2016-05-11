@@ -1,41 +1,35 @@
-Running: /home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench_isim_beh.exe -prj /home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench_beh.prj work.TestBench work.glbl 
+Running: /home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_isim_beh.exe -prj /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_beh.prj work.TestBench work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/RAM.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/Module_ROM.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/Collaterals.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/RAM.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Module_ROM.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Collaterals.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" into library work
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/TestBench.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 25: Size mismatch in connection of port <iA>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 48: Size mismatch in connection of port <Initial>. Formal port size is 16-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 59: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 4-bit.
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 60: Size mismatch in connection of port <Q>. Formal port size is 8-bit while actual signal size is 4-bit.
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/MiniAlu.v" Line 97: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 16-bit.
-WARNING:HDLCompiler:1007 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 21: Element index 16 into wR is out of bounds
-WARNING:HDLCompiler:1007 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 28: Element index 16 into wCarry is out of bounds
-WARNING:HDLCompiler:1007 - "/home/nano/Desktop/LabDigitales/DocEx2/ParteI/../ParteIII(IMUL)/Multiplicacion.v" Line 57: Element index 16 into wR is out of bounds
+WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 68: Size mismatch in connection of port <Initial>. Formal port size is 16-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 117: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 16-bit.
 Completed static elaboration
-Fuse Memory Usage: 95468 KB
-Fuse CPU Usage: 3500 ms
+Fuse Memory Usage: 95172 KB
+Fuse CPU Usage: 3350 ms
 Compiling module ROM
+Compiling module Module_Power_On_LCD
 Compiling module RAM_DUAL_READ_PORT
 Compiling module UPCOUNTER_POSEDGE
+Compiling module FFD_POSEDGE_SYNCRONOUS_RESET(SIZ...
 Compiling module FFD_POSEDGE_SYNCRONOUS_RESET
 Compiling module FFD_POSEDGE_SYNCRONOUS_RESET(SIZ...
-Compiling module MODULE_ADDER
-Compiling module MULTPLY_CELL
 Compiling module MiniAlu
 Compiling module TestBench
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
+Waiting for 7 sub-compilation(s) to finish...
 Compiled 10 Verilog Units
-Built simulation executable /home/nano/Desktop/LabDigitales/DocEx2/ParteI/TestBench_isim_beh.exe
-Fuse Memory Usage: 400736 KB
-Fuse CPU Usage: 3860 ms
-GCC CPU Usage: 8100 ms
+Built simulation executable /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_isim_beh.exe
+Fuse Memory Usage: 393076 KB
+Fuse CPU Usage: 3440 ms
+GCC CPU Usage: 2800 ms
