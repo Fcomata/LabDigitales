@@ -5,10 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 68: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Initial</arg>&gt;. Formal port size is <arg fmt="%d" index="2">16</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 596: Syntax error near &quot;<arg fmt="%s" index="1">end</arg>&quot;.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 117: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">D</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">16</arg>-bit.
+<msg type="error" file="HDLCompiler" num="346" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 626: Default case should appear only once
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 24: Module &lt;<arg fmt="%s" index="1">Module_Power_On_LCD</arg>&gt; ignored due to previous errors.
 </msg>
 
 </messages>

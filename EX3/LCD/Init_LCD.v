@@ -20,6 +20,7 @@
 `define STATE_POWERON_INIT_17 18
 `define STATE_POWERON_INIT_18 19
 `define STATE_POWERON_INIT_19 20
+`define STATE_POWERON_INIT_20 21
 
 module Module_Power_On_LCD
 (
@@ -32,19 +33,34 @@ module Module_Power_On_LCD
 	output wire oLCD_StrataFlashControl,
 	output wire oLCD_ReadWrite,
 	output reg RstAlu,
-	output reg[3:0] oLCD_Data
+	output reg[3:0] oLCD_Data,
+	output reg R_BUSY
 	);
 
 
+
+
 reg rWrite_Enabled;
+wire [7:0] wFFNibble;
 assign oLCD_ReadWrite = 0; //I only Write to the LCD display, never Read from it
 assign oLCD_StrataFlashControl = 1; //StrataFlash disabled. Full read/write access to LCD
 assign oLCD_Enabled = 1;
+
 
 reg [7:0] rCurrentState,rNextState;
 reg [31:0] rTimeCount;
 reg rTimeCountReset;
 wire wWriteDone;
+
+
+FFD_POSEDGE_SYNCRONOUS_RESET # ( 8 ) FFNibble
+(
+	.Clock(R_BUSY),
+	.Reset(Reset),
+	.Enable(1'b1),
+	.D(Nibble),
+	.Q(wFFNibble)
+);
 
 //----------------------------------------------
 //Next State and delay logic
@@ -54,6 +70,7 @@ wire wWriteDone;
 		begin
 			rCurrentState = `STATE_RESET;
 			rTimeCount <= 32'b0;
+			
 		end
 		else
 		begin
@@ -78,7 +95,7 @@ wire wWriteDone;
 				rTimeCountReset = 1'b0;
 				rNextState = `STATE_POWERON_INIT_0;
 				RstAlu = 1'b1;
-				
+				R_BUSY <= 1'b0;
 
 			end
 
@@ -94,8 +111,9 @@ wire wWriteDone;
 				oLCD_Data = 4'h0;
 				oLCD_RegisterSelect = 1'b0; //these are commands
 				RstAlu = 1'b1;
-
-			if (rTimeCount > 32'd750000 )
+				R_BUSY <= 1'b0;
+				
+			if (rTimeCount > 32'd75)//0000 )
 				begin
 					rTimeCountReset = 1'b1;
 					rNextState = `STATE_POWERON_INIT_1;
@@ -118,6 +136,8 @@ wire wWriteDone;
 				oLCD_Data = 4'h3;
 				oLCD_RegisterSelect = 1'b0; //these are commands
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd12 )
 				begin
 					rTimeCountReset = 1'b1;
@@ -140,6 +160,7 @@ wire wWriteDone;
 				oLCD_Data =  4'h0;
 				oLCD_RegisterSelect = 1'b0; //these are commands
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 
 				if (rTimeCount > 32'd205000 )
 				begin
@@ -166,6 +187,7 @@ wire wWriteDone;
 				oLCD_RegisterSelect = 1'b0;
 				rTimeCountReset = 1'b1;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 
 
 			if (rTimeCount > 32'd12 )
@@ -195,6 +217,8 @@ wire wWriteDone;
 				oLCD_Data =  4'h0;
 				oLCD_RegisterSelect =  1'b0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd5000 )
 				begin
 					rTimeCountReset = 1'b1;
@@ -221,6 +245,8 @@ wire wWriteDone;
 				oLCD_RegisterSelect = 1'b0;
 				rTimeCountReset = 1'b1;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd12 )
 					begin
 						rTimeCountReset = 1'b1;
@@ -248,6 +274,8 @@ wire wWriteDone;
 				oLCD_Data =  4'h0;
 				oLCD_RegisterSelect = 1'b0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd2000 )
 				begin
 					rTimeCountReset = 1'b1;
@@ -273,6 +301,7 @@ wire wWriteDone;
 				oLCD_Data = 4'h2;
 				oLCD_RegisterSelect = 1'b0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 				
 
 				if (rTimeCount > 32'd12 )
@@ -302,6 +331,8 @@ wire wWriteDone;
 				oLCD_Data =  4'h0;
 				oLCD_RegisterSelect = 1'b0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 
 				if (rTimeCount > 32'd2000 )
 				begin
@@ -330,6 +361,7 @@ wire wWriteDone;
 				//FIRST NIBBLE
 				oLCD_Data = 4'h2;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 
 				if (rTimeCount > 32'd50 ) //Pasa 1uS 
 				begin
@@ -352,6 +384,8 @@ wire wWriteDone;
 				//SECOND NIBBLE
 				oLCD_Data = 4'h8;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_11;
@@ -379,6 +413,7 @@ wire wWriteDone;
 				//FIRST NIBBLE
 				oLCD_Data = 4'h0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 
 				if (rTimeCount > 32'd50 ) //Pasa 1uS 
 				begin
@@ -401,6 +436,8 @@ wire wWriteDone;
 				//SECOND NIBBLE
 				oLCD_Data = 4'h6;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_13;
@@ -426,6 +463,8 @@ wire wWriteDone;
 				//FIRST NIBBLE
 				oLCD_Data = 4'h0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd50 ) //Pasa 1uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_14;
@@ -447,6 +486,8 @@ wire wWriteDone;
 				//SECOND NIBBLE
 				oLCD_Data = 4'hC;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_15;
@@ -475,6 +516,7 @@ wire wWriteDone;
 				//FIRST NIBBLE
 				oLCD_Data = 4'h0;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 
 				if (rTimeCount > 32'd50 ) //Pasa 1uS 
 				begin
@@ -497,6 +539,8 @@ wire wWriteDone;
 				//SECOND NIBBLE
 				oLCD_Data = 4'h1;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
+				
 				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_17;
@@ -521,34 +565,45 @@ wire wWriteDone;
 			begin
 				oLCD_RegisterSelect = 1;
 				RstAlu = 1'b0;
-				if(LCD_Write)begin
-					oLCD_Data = Nibble[7:4];
+				R_BUSY <= 1'b0;
+				
+				if(LCD_Write)
+					rNextState = `STATE_POWERON_INIT_18;
+				else
+					rNextState = `STATE_POWERON_INIT_17;
+			end
 
+			`STATE_POWERON_INIT_18:
+			begin
+					oLCD_RegisterSelect = 1;
+					RstAlu = 1'b0;
+					oLCD_Data = wFFNibble[7:4];
+					R_BUSY <= 1'b1;
+					
 					if (rTimeCount > 32'd50 ) //Pasa 1uS 
 					begin
-						rNextState = `STATE_POWERON_INIT_18;
+						rNextState = `STATE_POWERON_INIT_19;
 						rTimeCountReset = 1'b1;
 					end
 
 					else
 					begin
 						rTimeCountReset = 1'b0;
-						rNextState = `STATE_POWERON_INIT_17;
+						rNextState = `STATE_POWERON_INIT_18;
 					end
+					
 				end
 				
-				else
-					rNextState = `STATE_POWERON_INIT_17;
-			   end
 
 
-			`STATE_POWERON_INIT_18:
+			`STATE_POWERON_INIT_19:
 			begin
 
-				oLCD_RegisterSelect = 1; //0=Command, 1=Data
-				//SECOND NIBBLE
-				oLCD_Data = Nibble[3:0];
+				oLCD_RegisterSelect = 1; 
+				oLCD_Data = wFFNibble[3:0];
 				RstAlu = 1'b0;
+				R_BUSY <= 1'b1;
+				
 				if (rTimeCount > 32'd2000 ) //Pasa 40uS 
 				begin
 					rNextState = `STATE_POWERON_INIT_17;
@@ -558,7 +613,7 @@ wire wWriteDone;
 				else
 				begin
 					rTimeCountReset = 1'b0;
-					rNextState = `STATE_POWERON_INIT_18;
+					rNextState = `STATE_POWERON_INIT_19;
 				end
 				
 			end
@@ -574,6 +629,7 @@ wire wWriteDone;
 				rTimeCountReset = 1'b0;
 				rNextState = `STATE_RESET;
 				RstAlu = 1'b1;
+				R_BUSY <= 1'b0;
 			end
 //------------------------------------------
 		endcase

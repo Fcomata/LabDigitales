@@ -13,6 +13,7 @@
 `define IMUL  4'd8
 `define LCD   4'd9
 `define SHL   4'd10
+`define BNE   4'd11
 
 `define R0 8'd0
 `define R1 8'd1

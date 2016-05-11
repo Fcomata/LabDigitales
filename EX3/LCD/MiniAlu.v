@@ -25,6 +25,7 @@ wire [15:0] wA,wB,wResltAnt;
 wire [3:0] oLCD_Data;
 wire oLCD_Enabled, oLCD_RegisterSelect,oLCD_StrataFlashControl, oLCD_ReadWrite;
 wire Reset; //Reset que sale de LCD
+wire wR_Busy; //Ocupado LCD
 
 ROM InstructionRom 
 (
@@ -43,6 +44,7 @@ Module_Power_On_LCD  LCD(
 	.oLCD_StrataFlashControl(oLCD_StrataFlashControl),
 	.oLCD_ReadWrite(oLCD_ReadWrite),
 	.RstAlu(Reset),
+	.R_BUSY(wR_Busy),
 	.oLCD_Data(oLCD_Data)
 
 
@@ -244,6 +246,19 @@ always @ ( * ) begin
 		rCaracter    <= {wA[3:0],wB[3:0]}; //
 	end
 	
+	`BNE:
+	begin
+		rFFLedEN     <= 1'b0;
+		rWriteEnable <= 1'b0;
+		rResult      <= 0;
+		rWriteLCD 	 <=0;
+		rCaracter    <=0;
+		if (wR_Busy <= 1 )
+			rBranchTaken <= 1'b1;
+		else
+			rBranchTaken <= 1'b0;
+		
+	end
 	
 	default:
 	begin

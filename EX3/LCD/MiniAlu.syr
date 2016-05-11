@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> 
 Reading design: MiniAlu.prj
@@ -107,18 +107,18 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling verilog file "Collaterals.v" in library work
+Module <UPCOUNTER_POSEDGE> compiled
 Compiling verilog file "RAM.v" in library work
+Module <FFD_POSEDGE_SYNCRONOUS_RESET> compiled
 Compiling verilog file "Module_ROM.v" in library work
 Compiling verilog include file "Defintions.v"
 Module <RAM_DUAL_READ_PORT> compiled
 Compiling verilog file "Init_LCD.v" in library work
 Module <ROM> compiled
-Compiling verilog file "Collaterals.v" in library work
-Module <Module_Power_On_LCD> compiled
-Module <UPCOUNTER_POSEDGE> compiled
 Compiling verilog file "MiniAlu.v" in library work
 Compiling verilog include file "Defintions.v"
-Module <FFD_POSEDGE_SYNCRONOUS_RESET> compiled
+Module <Module_Power_On_LCD> compiled
 Module <MiniAlu> compiled
 No errors in compilation
 Analysis of file <"MiniAlu.prj"> succeeded.
@@ -140,6 +140,9 @@ Analyzing hierarchy for module <RAM_DUAL_READ_PORT> in library <work> with param
 
 Analyzing hierarchy for module <UPCOUNTER_POSEDGE> in library <work> with parameters.
 	SIZE = "00000000000000000000000000010000"
+
+Analyzing hierarchy for module <FFD_POSEDGE_SYNCRONOUS_RESET> in library <work> with parameters.
+	SIZE = "00000000000000000000000000000100"
 
 Analyzing hierarchy for module <FFD_POSEDGE_SYNCRONOUS_RESET> in library <work> with parameters.
 	SIZE = "00000000000000000000000000001000"
@@ -174,12 +177,16 @@ Analyzing module <UPCOUNTER_POSEDGE> in library <work>.
 Module <UPCOUNTER_POSEDGE> is correct for synthesis.
  
 Analyzing module <FFD_POSEDGE_SYNCRONOUS_RESET.1> in library <work>.
-	SIZE = 32'sb00000000000000000000000000001000
+	SIZE = 32'sb00000000000000000000000000000100
 Module <FFD_POSEDGE_SYNCRONOUS_RESET.1> is correct for synthesis.
  
 Analyzing module <FFD_POSEDGE_SYNCRONOUS_RESET.2> in library <work>.
-	SIZE = 32'sb00000000000000000000000000010000
+	SIZE = 32'sb00000000000000000000000000001000
 Module <FFD_POSEDGE_SYNCRONOUS_RESET.2> is correct for synthesis.
+ 
+Analyzing module <FFD_POSEDGE_SYNCRONOUS_RESET.3> in library <work>.
+	SIZE = 32'sb00000000000000000000000000010000
+Module <FFD_POSEDGE_SYNCRONOUS_RESET.3> is correct for synthesis.
  
 
 =========================================================================
@@ -190,45 +197,10 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <ROM>.
     Related source file is "Module_ROM.v".
-    Found 16x28-bit ROM for signal <oInstruction$mux0000>.
+    Found 32x28-bit ROM for signal <oInstruction$mux0000>.
     Summary:
 	inferred   1 ROM(s).
 Unit <ROM> synthesized.
-
-
-Synthesizing Unit <Module_Power_On_LCD>.
-    Related source file is "Init_LCD.v".
-WARNING:Xst:1780 - Signal <wWriteDone> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rWrite_Enabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found finite state machine <FSM_0> for signal <rCurrentState>.
-    -----------------------------------------------------------------------
-    | States             | 20                                             |
-    | Transitions        | 40                                             |
-    | Inputs             | 7                                              |
-    | Outputs            | 22                                             |
-    | Clock              | Clock                     (rising_edge)        |
-    | Reset              | Reset                     (positive)           |
-    | Reset type         | synchronous                                    |
-    | Reset State        | 00000000                                       |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-WARNING:Xst:737 - Found 1-bit latch for signal <rTimeCountReset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 4-bit latch for signal <oLCD_Data>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0000> created at line 98.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0001> created at line 121.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0002> created at line 144.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0003> created at line 198.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0004> created at line 251.
-    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0005> created at line 334.
-    Found 32-bit up counter for signal <rTimeCount>.
-    Summary:
-	inferred   1 Finite State Machine(s).
-	inferred   1 Counter(s).
-	inferred   6 Comparator(s).
-Unit <Module_Power_On_LCD> synthesized.
 
 
 Synthesizing Unit <RAM_DUAL_READ_PORT>.
@@ -256,22 +228,66 @@ Unit <UPCOUNTER_POSEDGE> synthesized.
 
 Synthesizing Unit <FFD_POSEDGE_SYNCRONOUS_RESET_1>.
     Related source file is "Collaterals.v".
-    Found 8-bit register for signal <Q>.
+    Found 4-bit register for signal <Q>.
     Summary:
-	inferred   8 D-type flip-flop(s).
+	inferred   4 D-type flip-flop(s).
 Unit <FFD_POSEDGE_SYNCRONOUS_RESET_1> synthesized.
 
 
 Synthesizing Unit <FFD_POSEDGE_SYNCRONOUS_RESET_2>.
     Related source file is "Collaterals.v".
+    Found 8-bit register for signal <Q>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <FFD_POSEDGE_SYNCRONOUS_RESET_2> synthesized.
+
+
+Synthesizing Unit <FFD_POSEDGE_SYNCRONOUS_RESET_3>.
+    Related source file is "Collaterals.v".
     Found 16-bit register for signal <Q>.
     Summary:
 	inferred  16 D-type flip-flop(s).
-Unit <FFD_POSEDGE_SYNCRONOUS_RESET_2> synthesized.
+Unit <FFD_POSEDGE_SYNCRONOUS_RESET_3> synthesized.
+
+
+Synthesizing Unit <Module_Power_On_LCD>.
+    Related source file is "Init_LCD.v".
+WARNING:Xst:1780 - Signal <wWriteDone> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rWrite_Enabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <rCurrentState>.
+    -----------------------------------------------------------------------
+    | States             | 21                                             |
+    | Transitions        | 41                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 24                                             |
+    | Clock              | Clock                     (rising_edge)        |
+    | Reset              | Reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000000                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <rTimeCountReset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <oLCD_Data>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0000> created at line 116.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0001> created at line 141.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0002> created at line 165.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0003> created at line 222.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0004> created at line 279.
+    Found 32-bit comparator greater for signal <rCurrentState$cmp_gt0005> created at line 366.
+    Found 32-bit up counter for signal <rTimeCount>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   6 Comparator(s).
+Unit <Module_Power_On_LCD> synthesized.
 
 
 Synthesizing Unit <MiniAlu>.
     Related source file is "MiniAlu.v".
+WARNING:Xst:646 - Signal <wR_Busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <wMult> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000000000000000000000000.
 WARNING:Xst:646 - Signal <rResultTop> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <oLCD_StrataFlashControl> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -279,11 +295,13 @@ WARNING:Xst:646 - Signal <oLCD_RegisterSelect> is assigned but never used. This 
 WARNING:Xst:646 - Signal <oLCD_ReadWrite> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <oLCD_Enabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <oLCD_Data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 16-bit comparator lessequal for signal <rBranchTaken$cmp_le0000> created at line 210.
-    Found 16-bit adder for signal <rResult$addsub0000> created at line 188.
-    Found 8-bit comparator equal for signal <wA$cmp_eq0000> created at line 145.
-    Found 8-bit comparator equal for signal <wB$cmp_eq0000> created at line 146.
+    Found 16x1-bit ROM for signal <rFFLedEN>.
+    Found 16-bit comparator lessequal for signal <rBranchTaken$cmp_le0000> created at line 212.
+    Found 16-bit adder for signal <rResult$addsub0000> created at line 190.
+    Found 8-bit comparator equal for signal <wA$cmp_eq0000> created at line 147.
+    Found 8-bit comparator equal for signal <wB$cmp_eq0000> created at line 148.
     Summary:
+	inferred   1 ROM(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   1 Multiplier(s).
 	inferred   3 Comparator(s).
@@ -296,8 +314,9 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  9x16-bit dual-port RAM                                : 2
-# ROMs                                                 : 1
- 16x28-bit ROM                                         : 1
+# ROMs                                                 : 2
+ 16x1-bit ROM                                          : 1
+ 32x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
 # Adders/Subtractors                                   : 2
@@ -305,8 +324,9 @@ Macro Statistics
 # Counters                                             : 2
  16-bit up counter                                     : 1
  32-bit up counter                                     : 1
-# Registers                                            : 9
+# Registers                                            : 10
  16-bit register                                       : 3
+ 4-bit register                                        : 1
  8-bit register                                        : 6
 # Latches                                              : 2
  1-bit latch                                           : 1
@@ -323,35 +343,34 @@ Macro Statistics
 =========================================================================
 
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <LCD/rCurrentState/FSM> on signal <rCurrentState[1:5]> with gray encoding.
-----------------------
+Optimizing FSM <LCD/rCurrentState/FSM> on signal <rCurrentState[1:21]> with one-hot encoding.
+-----------------------------------
  State    | Encoding
-----------------------
- 00000000 | 00000
- 00000001 | 00001
- 00000010 | 00011
- 00000011 | 00010
- 00000100 | 00110
- 00000101 | 00111
- 00000110 | 00101
- 00000111 | 00100
- 00001000 | 01100
- 00001001 | 01101
- 00001010 | 01111
- 00001011 | 01110
- 00001100 | 01010
- 00001101 | 01011
- 00001110 | 01001
- 00001111 | 01000
- 00010000 | 11000
- 00010001 | 11001
- 00010010 | 11011
- 00010011 | 11010
-----------------------
-WARNING:Xst:2677 - Node <Q_4> of sequential type is unconnected in block <FFD1>.
-WARNING:Xst:2677 - Node <Q_5> of sequential type is unconnected in block <FFD1>.
-WARNING:Xst:2677 - Node <Q_6> of sequential type is unconnected in block <FFD1>.
-WARNING:Xst:2677 - Node <Q_7> of sequential type is unconnected in block <FFD1>.
+-----------------------------------
+ 00000000 | 000000000000000000001
+ 00000001 | 000000000000000000010
+ 00000010 | 000000000000000000100
+ 00000011 | 000000000000000001000
+ 00000100 | 000000000000000010000
+ 00000101 | 000000000000000100000
+ 00000110 | 000000000000001000000
+ 00000111 | 000000000000010000000
+ 00001000 | 000000000000100000000
+ 00001001 | 000000000001000000000
+ 00001010 | 000000000010000000000
+ 00001011 | 000000000100000000000
+ 00001100 | 000000001000000000000
+ 00001101 | 000000010000000000000
+ 00001110 | 000000100000000000000
+ 00001111 | 000001000000000000000
+ 00010000 | 000010000000000000000
+ 00010001 | 000100000000000000000
+ 00010010 | 001000000000000000000
+ 00010011 | 010000000000000000000
+ 00010100 | 100000000000000000000
+-----------------------------------
+WARNING:Xst:1290 - Hierarchical block <FFNibble> is unconnected in block <LCD>.
+   It will be removed from the design.
 
 Synthesizing (advanced) Unit <RAM_DUAL_READ_PORT>.
 INFO:Xst:3231 - The small RAM <Mram_Ram> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
@@ -395,8 +414,9 @@ Macro Statistics
 # FSMs                                                 : 1
 # RAMs                                                 : 2
  9x16-bit dual-port distributed RAM                    : 2
-# ROMs                                                 : 1
- 16x28-bit ROM                                         : 1
+# ROMs                                                 : 2
+ 16x1-bit ROM                                          : 1
+ 32x28-bit ROM                                         : 1
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
 # Adders/Subtractors                                   : 2
@@ -404,8 +424,8 @@ Macro Statistics
 # Counters                                             : 2
  16-bit up counter                                     : 1
  32-bit up counter                                     : 1
-# Registers                                            : 96
- Flip-Flops                                            : 96
+# Registers                                            : 100
+ Flip-Flops                                            : 100
 # Latches                                              : 2
  1-bit latch                                           : 1
  4-bit latch                                           : 1
@@ -419,57 +439,31 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:2261 - The FF/Latch <FFD1/Q_3> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD1/Q_0> 
 
 Optimizing unit <MiniAlu> ...
 
 Optimizing unit <RAM_DUAL_READ_PORT> ...
 
-Optimizing unit <FFD_POSEDGE_SYNCRONOUS_RESET_1> ...
-
 Optimizing unit <FFD_POSEDGE_SYNCRONOUS_RESET_2> ...
+
+Optimizing unit <FFD_POSEDGE_SYNCRONOUS_RESET_3> ...
 
 Optimizing unit <Module_Power_On_LCD> ...
 WARNING:Xst:1710 - FF/Latch <FFD4/Q_7> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD4/Q_6> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD4/Q_5> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD4/Q_4> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD4/Q_3> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD3/Q_7> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD3/Q_6> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD3/Q_5> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD3/Q_4> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD2/Q_6> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FFD2/Q_4> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_Result/Q_6> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_Result/Q_4> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_IDST/Q_7> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_IDST/Q_6> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_IDST/Q_5> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_IDST/Q_4> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <FF_IDST/Q_3> (without init value) has a constant value of 0 in block <MiniAlu>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <FFD1/Q_7> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <FFD1/Q_6> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <FFD1/Q_5> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <FFD1/Q_4> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <LCD/oLCD_Data_3> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <LCD/oLCD_Data_2> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <LCD/oLCD_Data_1> of sequential type is unconnected in block <MiniAlu>.
-WARNING:Xst:2677 - Node <LCD/oLCD_Data_0> of sequential type is unconnected in block <MiniAlu>.
-
-Mapping all equations...
-Building and optimizing final netlist ...
-INFO:Xst:2261 - The FF/Latch <FFD3/Q_1> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD3/Q_0> 
-INFO:Xst:2261 - The FF/Latch <FFD4/Q_1> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD4/Q_0> 
-INFO:Xst:2261 - The FF/Latch <FFD3/Q_3> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD3/Q_2> 
-INFO:Xst:2261 - The FF/Latch <FFD1/Q_3> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD1/Q_0> 
-INFO:Xst:2261 - The FF/Latch <FFD2/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD2/Q_5> 
-INFO:Xst:2261 - The FF/Latch <FF_IDST/Q_1> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_IDST/Q_0> 
-Found area constraint ratio of 100 (+ 5) on block MiniAlu, actual ratio is 4.
-INFO:Xst:2260 - The FF/Latch <FF_Result/Q_11> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_10> 
-INFO:Xst:2260 - The FF/Latch <FF_Result/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_5> 
-INFO:Xst:2260 - The FF/Latch <FF_Result/Q_9> in Unit <MiniAlu> is equivalent to the following FF/Latch : <FF_Result/Q_8> 
-INFO:Xst:2261 - The FF/Latch <FF_Result/Q_11> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_10> 
-INFO:Xst:2261 - The FF/Latch <FF_Result/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_5> 
-INFO:Xst:2261 - The FF/Latch <FF_Result/Q_9> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_8> 
-WARNING:Xst:2677 - Node <Mmult__AUX_1> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren16> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren15> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <DataRam/Mram_Ram_ren14> of sequential type is unconnected in block <MiniAlu>.
@@ -518,8 +512,45 @@ WARNING:Xst:2677 - Node <DataRam/oDataOut0_3> of sequential type is unconnected 
 WARNING:Xst:2677 - Node <DataRam/oDataOut0_2> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <DataRam/oDataOut0_1> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <DataRam/oDataOut0_0> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_15> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_14> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_13> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_12> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <FF_Result/Q_11> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_10> of sequential type is unconnected in block <MiniAlu>.
 WARNING:Xst:2677 - Node <FF_Result/Q_9> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <FF_Result/Q_8> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_0> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_1> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_2> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_3> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_4> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_5> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_6> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/FFNibble/Q_7> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/oLCD_Data_3> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/oLCD_Data_2> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/oLCD_Data_1> of sequential type is unconnected in block <MiniAlu>.
+WARNING:Xst:2677 - Node <LCD/oLCD_Data_0> of sequential type is unconnected in block <MiniAlu>.
+INFO:Xst:2399 - RAMs <DataRam/Mram_Ram_ren7>, <DataRam/Mram_Ram_ren5> are equivalent, second RAM is removed
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <FFD3/Q_1> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD3/Q_0> 
+INFO:Xst:2261 - The FF/Latch <DataRam/oDataOut1_6> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <DataRam/oDataOut1_4> 
+INFO:Xst:2261 - The FF/Latch <FFD3/Q_3> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD3/Q_2> 
+INFO:Xst:2261 - The FF/Latch <FFD2/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FFD2/Q_5> 
+INFO:Xst:2261 - The FF/Latch <FF_Result/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_Result/Q_5> 
+INFO:Xst:2261 - The FF/Latch <FF_LEDS/Q_6> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_LEDS/Q_4> 
+INFO:Xst:2399 - RAMs <DataRam/Mram_Ram_ren8>, <DataRam/Mram_Ram_ren6> are equivalent, second RAM is removed
+Found area constraint ratio of 100 (+ 5) on block MiniAlu, actual ratio is 2.
+INFO:Xst:2260 - The FF/Latch <DataRam/oDataOut1_7> in Unit <MiniAlu> is equivalent to the following FF/Latch : <DataRam/oDataOut1_5> 
+INFO:Xst:2261 - The FF/Latch <DataRam/oDataOut1_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <DataRam/oDataOut1_5> 
+INFO:Xst:2261 - The FF/Latch <FF_LEDS/Q_7> in Unit <MiniAlu> is equivalent to the following FF/Latch, which will be removed : <FF_LEDS/Q_5> 
+FlipFlop FFD4/Q_0 has been replicated 1 time(s)
+FlipFlop FFD4/Q_1 has been replicated 1 time(s)
+FlipFlop FFD4/Q_2 has been replicated 1 time(s)
+FlipFlop FFD4/Q_3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -527,8 +558,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 88
- Flip-Flops                                            : 88
+# Registers                                            : 110
+ Flip-Flops                                            : 110
 
 =========================================================================
 
@@ -557,27 +588,31 @@ Design Statistics
 # IOs                              : 10
 
 Cell Usage :
-# BELS                             : 382
+# BELS                             : 398
 #      GND                         : 1
 #      INV                         : 8
-#      LUT1                        : 39
-#      LUT2                        : 23
-#      LUT3                        : 43
-#      LUT4                        : 87
+#      LUT1                        : 40
+#      LUT2                        : 18
+#      LUT3                        : 36
+#      LUT3_D                      : 5
+#      LUT3_L                      : 2
+#      LUT4                        : 114
 #      LUT4_D                      : 3
-#      LUT4_L                      : 4
-#      MUXCY                       : 114
-#      MUXF5                       : 11
+#      LUT4_L                      : 8
+#      MUXCY                       : 112
+#      MUXF5                       : 2
 #      VCC                         : 1
 #      XORCY                       : 48
-# FlipFlops/Latches                : 89
-#      FD                          : 24
-#      FDR                         : 39
-#      FDRE                        : 22
-#      FDRS                        : 3
-#      LD                          : 1
-# RAMS                             : 8
-#      RAM16X1D                    : 8
+# FlipFlops/Latches                : 111
+#      FD                          : 22
+#      FDR                         : 58
+#      FDRE                        : 27
+#      FDRS                        : 1
+#      FDRSE                       : 1
+#      FDS                         : 1
+#      LD_1                        : 1
+# RAMS                             : 6
+#      RAM16X1D                    : 6
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 9
@@ -590,11 +625,11 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      117  out of   4656     2%  
- Number of Slice Flip Flops:             89  out of   9312     0%  
- Number of 4 input LUTs:                223  out of   9312     2%  
-    Number used as logic:               207
-    Number used as RAMs:                 16
+ Number of Slices:                      130  out of   4656     2%  
+ Number of Slice Flip Flops:            111  out of   9312     1%  
+ Number of 4 input LUTs:                246  out of   9312     2%  
+    Number used as logic:               234
+    Number used as RAMs:                 12
  Number of IOs:                          10
  Number of bonded IOBs:                  10  out of    232     4%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -617,15 +652,12 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------------------------------+-----------------------------+-------+
-Clock Signal                                               | Clock buffer(FF name)       | Load  |
------------------------------------------------------------+-----------------------------+-------+
-Clock                                                      | BUFGP                       | 96    |
-LCD/rTimeCountReset_not0001(LCD/rTimeCountReset_not00011:O)| NONE(*)(LCD/rTimeCountReset)| 1     |
------------------------------------------------------------+-----------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+-----------------------------------+--------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)    | Load  |
+-----------------------------------+--------------------------+-------+
+Clock                              | BUFGP                    | 116   |
+LCD/rCurrentState_FSM_FFd3         | NONE(LCD/rTimeCountReset)| 1     |
+-----------------------------------+--------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -636,9 +668,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 11.158ns (Maximum Frequency: 89.622MHz)
-   Minimum input arrival time before clock: 4.939ns
-   Maximum output required time after clock: 4.283ns
+   Minimum period: 9.248ns (Maximum Frequency: 108.131MHz)
+   Minimum input arrival time before clock: 5.434ns
+   Maximum output required time after clock: 4.310ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -647,10 +679,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clock'
-  Clock period: 11.158ns (frequency: 89.622MHz)
-  Total number of paths / destination ports: 9638 / 196
+  Clock period: 9.248ns (frequency: 108.132MHz)
+  Total number of paths / destination ports: 9222 / 211
 -------------------------------------------------------------------------
-Delay:               11.158ns (Levels of Logic = 7)
+Delay:               9.248ns (Levels of Logic = 5)
   Source:            LCD/rCurrentState_FSM_FFd1 (FF)
   Destination:       DataRam/oDataOut1_7 (FF)
   Source Clock:      Clock rising
@@ -660,24 +692,22 @@ Delay:               11.158ns (Levels of Logic = 7)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRS:C->Q            16   0.591   1.209  LCD/rCurrentState_FSM_FFd1 (LCD/rCurrentState_FSM_FFd1)
-     LUT4_L:I0->LO         1   0.704   0.104  LCD/rCurrentState_FSM_Out201_1 (LCD/rCurrentState_FSM_Out201)
-     LUT4:I3->O            4   0.704   0.591  wIP<0>3 (N21)
-     LUT4:I3->O           11   0.704   1.108  wIP<2>1 (wIP<2>)
-     LUT2:I0->O            1   0.704   0.424  InstructionRom/oInstruction<26>49 (InstructionRom/oInstruction<26>49)
-     LUT4:I3->O            1   0.704   0.424  wInstruction<8>24 (wInstruction<8>24)
-     LUT4:I3->O           17   0.704   1.051  wInstruction<8>43 (wInstruction<8>)
-     RAM16X1D:DPRA0->DPO    1   0.704   0.420  DataRam/Mram_Ram_ren1 (DataRam/_varindex0001<0>)
+     FDR:C->Q             14   0.591   1.079  LCD/rCurrentState_FSM_FFd1 (LCD/rCurrentState_FSM_FFd1)
+     LUT4:I1->O            4   0.704   0.666  wIPInitialValue<2>1 (Madd__AUX_Initial_3_lut<2>)
+     LUT3_D:I1->O         17   0.704   1.226  wIP<2>1 (wIP<2>)
+     LUT4:I0->O            1   0.704   0.455  wInstruction<10>_SW1 (N23)
+     LUT4:I2->O           13   0.704   0.983  wInstruction<10> (wInstruction<10>)
+     RAM16X1D:DPRA2->DPO    1   0.704   0.420  DataRam/Mram_Ram_ren1 (DataRam/_varindex0001<0>)
      FD:D                      0.308          DataRam/oDataOut1_0
     ----------------------------------------
-    Total                     11.158ns (5.827ns logic, 5.331ns route)
-                                       (52.2% logic, 47.8% route)
+    Total                      9.248ns (4.419ns logic, 4.829ns route)
+                                       (47.8% logic, 52.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clock'
-  Total number of paths / destination ports: 37 / 37
+  Total number of paths / destination ports: 53 / 53
 -------------------------------------------------------------------------
-Offset:              4.939ns (Levels of Logic = 2)
+Offset:              5.434ns (Levels of Logic = 2)
   Source:            Reset_I (PAD)
   Destination:       LCD/rTimeCount_31 (FF)
   Destination Clock: Clock rising
@@ -686,18 +716,18 @@ Offset:              4.939ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.218   0.844  Reset_I_IBUF (Reset_I_IBUF)
+     IBUF:I->O            22   1.218   1.339  Reset_I_IBUF (Reset_I_IBUF)
      LUT2:I0->O           32   0.704   1.262  LCD/rTimeCount_or00001 (LCD/rTimeCount_or0000)
      FDR:R                     0.911          LCD/rTimeCount_0
     ----------------------------------------
-    Total                      4.939ns (2.833ns logic, 2.106ns route)
-                                       (57.4% logic, 42.6% route)
+    Total                      5.434ns (2.833ns logic, 2.601ns route)
+                                       (52.1% logic, 47.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clock'
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              4.283ns (Levels of Logic = 1)
+Offset:              4.310ns (Levels of Logic = 1)
   Source:            FF_LEDS/Q_7 (FF)
   Destination:       oLed<7> (PAD)
   Source Clock:      Clock rising
@@ -706,24 +736,24 @@ Offset:              4.283ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             1   0.591   0.420  FF_LEDS/Q_7 (FF_LEDS/Q_7)
-     OBUF:I->O                 3.272          oLed_7_OBUF (oLed<7>)
+     FDRE:C->Q             2   0.591   0.447  FF_LEDS/Q_7 (FF_LEDS/Q_7)
+     OBUF:I->O                 3.272          oLed_5_OBUF (oLed<5>)
     ----------------------------------------
-    Total                      4.283ns (3.863ns logic, 0.420ns route)
-                                       (90.2% logic, 9.8% route)
+    Total                      4.310ns (3.863ns logic, 0.447ns route)
+                                       (89.6% logic, 10.4% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 40.00 secs
-Total CPU time to Xst completion: 38.90 secs
+Total CPU time to Xst completion: 37.64 secs
  
 --> 
 
 
-Total memory usage is 529896 kilobytes
+Total memory usage is 530232 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   97 (   0 filtered)
+Number of warnings :  100 (   0 filtered)
 Number of infos    :   20 (   0 filtered)
 

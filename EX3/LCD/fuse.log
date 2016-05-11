@@ -1,35 +1,13 @@
-Running: /home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_isim_beh.exe -prj /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_beh.prj work.TestBench work.glbl 
+Running: /home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_isim_beh.exe" -prj "/home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_beh.prj" "work.TestBench" "work.glbl" 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
+Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Collaterals.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/RAM.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Module_ROM.v" into library work
 Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/Collaterals.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/EX3/LCD/TestBench.v" into library work
-Analyzing Verilog file "/home/nano/Desktop/LabDigitales/Xil/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
-Starting static elaboration
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 68: Size mismatch in connection of port <Initial>. Formal port size is 16-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "/home/nano/Desktop/LabDigitales/EX3/LCD/MiniAlu.v" Line 117: Size mismatch in connection of port <D>. Formal port size is 8-bit while actual signal size is 16-bit.
-Completed static elaboration
-Fuse Memory Usage: 95172 KB
-Fuse CPU Usage: 3350 ms
-Compiling module ROM
-Compiling module Module_Power_On_LCD
-Compiling module RAM_DUAL_READ_PORT
-Compiling module UPCOUNTER_POSEDGE
-Compiling module FFD_POSEDGE_SYNCRONOUS_RESET(SIZ...
-Compiling module FFD_POSEDGE_SYNCRONOUS_RESET
-Compiling module FFD_POSEDGE_SYNCRONOUS_RESET(SIZ...
-Compiling module MiniAlu
-Compiling module TestBench
-Compiling module glbl
-Time Resolution for simulation is 1ps.
-Waiting for 7 sub-compilation(s) to finish...
-Compiled 10 Verilog Units
-Built simulation executable /home/nano/Desktop/LabDigitales/EX3/LCD/TestBench_isim_beh.exe
-Fuse Memory Usage: 393076 KB
-Fuse CPU Usage: 3440 ms
-GCC CPU Usage: 2800 ms
+ERROR:HDLCompiler:806 - "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 596: Syntax error near "end".
+ERROR:HDLCompiler:346 - "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 626: Default case should appear only once
+ERROR:HDLCompiler:598 - "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 24: Module <Module_Power_On_LCD> ignored due to previous errors.
+Verilog file /home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v ignored due to errors

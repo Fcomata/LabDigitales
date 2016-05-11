@@ -65,6 +65,7 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="MiniAlu_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="MiniAlu_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MiniAlu_xst.xrpt"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Module_Power_On_LCD_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TestBench_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TestBench_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="TestBench_isim_beh.wdb"/>
@@ -93,9 +94,13 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1462384770" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1462384770">
+    <transform xil_pn:end_ts="1462981128" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1462981128">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Collaterals.v"/>
       <outfile xil_pn:name="Defintions.v"/>
       <outfile xil_pn:name="Init_LCD.v"/>
@@ -104,11 +109,11 @@
       <outfile xil_pn:name="RAM.v"/>
       <outfile xil_pn:name="TestBench.v"/>
     </transform>
-    <transform xil_pn:end_ts="1459951395" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7994251461958826743" xil_pn:start_ts="1459951395">
+    <transform xil_pn:end_ts="1462974200" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7994251461958826743" xil_pn:start_ts="1462974200">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1459951395" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2970766352505828615" xil_pn:start_ts="1459951395">
+    <transform xil_pn:end_ts="1462974200" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2970766352505828615" xil_pn:start_ts="1462974200">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -116,9 +121,14 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1462384770" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1462384770">
+    <transform xil_pn:end_ts="1462981128" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1462981128">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Collaterals.v"/>
       <outfile xil_pn:name="Defintions.v"/>
       <outfile xil_pn:name="Init_LCD.v"/>
@@ -127,11 +137,13 @@
       <outfile xil_pn:name="RAM.v"/>
       <outfile xil_pn:name="TestBench.v"/>
     </transform>
-    <transform xil_pn:end_ts="1462384778" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4248203717376029071" xil_pn:start_ts="1462384770">
+    <transform xil_pn:end_ts="1462981135" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4248203717376029071" xil_pn:start_ts="1462981128">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TestBench_beh.prj"/>
       <outfile xil_pn:name="TestBench_isim_beh.exe"/>
@@ -140,10 +152,9 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1462384779" xil_pn:in_ck="6167063375750087309" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3913207672986833550" xil_pn:start_ts="1462384778">
+    <transform xil_pn:end_ts="1462981136" xil_pn:in_ck="-8781245194627224292" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3913207672986833550" xil_pn:start_ts="1462981135">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
@@ -179,12 +190,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1462384413" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-4776406651679495647" xil_pn:start_ts="1462384363">
+    <transform xil_pn:end_ts="1462982557" xil_pn:in_ck="-6003965690740203891" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-4776406651679495647" xil_pn:start_ts="1462982505">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="MiniAlu.lso"/>
       <outfile xil_pn:name="MiniAlu.ngc"/>
       <outfile xil_pn:name="MiniAlu.ngr"/>

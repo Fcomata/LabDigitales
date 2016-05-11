@@ -1,0 +1,29 @@
+Command line:
+   Module_Power_On_LCD_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  56639
+
+Wed May 11 07:42:59 2016
+
+
+ Elaboration Time: 0.09 sec
+
+ Current Memory Usage: 195.801 Meg
+
+ Total Signals          : 21
+ Total Nets             : 34
+ Total Signal Drivers   : 11
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 14
+ Total Traceable Variables  : 26
+ Total Scalar Nets and Variables : 170
+Total Line Count : 266
+
+ Total Simulation Time: 0.13 sec
+
+ Current Memory Usage: 271.303 Meg
+
+Wed May 11 07:43:14 2016
+
