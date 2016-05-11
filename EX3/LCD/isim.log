@@ -13,6 +13,15 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+# restart
 # run 10ms
-Stopped at time : 5361335 ns : File "/home/nano/Desktop/LabDigitales/EX3/LCD/Init_LCD.v" Line 86
-# exit 0
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 2245us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 2245us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
